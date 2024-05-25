@@ -251,7 +251,7 @@ ol {
 -----------------------*/
 
 .header__top {
-	background: #f5f5f5;
+	background: #7fad39;
 }
 
 .header__top__left {
@@ -3465,5 +3465,30 @@ ol {
 		font-size: 24px;
 	}
 
+    /* button logout */
+
+    .custom-btn.btn-1 {
+        background-color: #007bff; /* Warna latar default */
+        color: #ffffff; /* Warna teks default */
+        border: none; /* Menghapus border default */
+        padding: 10px 20px; /* Padding untuk tombol */
+        cursor: pointer; /* Menambahkan cursor pointer */
+        display: inline-block; /* Membuat elemen button mengatur konten di dalamnya */
+        transition: background-color 0.3s ease; /* Transisi untuk perubahan warna */
+    }
+
+    .custom-btn.btn-1 a {
+        color: inherit; /* Mengatur warna teks sesuai dengan tombol */
+        text-decoration: none; /* Menghapus garis bawah dari link */
+    }
+
+    .custom-btn.btn-1:hover {
+        background-color: #0056b3; /* Warna latar saat hover */
+    }
+
+    /* Pastikan link di dalam button tidak mengubah tampilan */
+    .custom-btn.btn-1 a:hover {
+        color: inherit; /* Tetap mempertahankan warna teks saat hover */
+    }
 
 }

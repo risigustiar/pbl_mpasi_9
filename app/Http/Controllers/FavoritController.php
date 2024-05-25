@@ -23,7 +23,7 @@ class FavoritController extends Controller
 
 public function hapus_favorit($id_resep)
 {
-    DB::table('favorits')->where('id_resep', $id_resep)->where('id', Auth::id())->delete();
+    
 
     return redirect()->back();
 }

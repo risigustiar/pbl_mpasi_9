@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link href="{{ asset('img/logo-web.png') }}" rel="icon">
-  <title>BebyBit - Dashboard</title>
-  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }} rel="stylesheet" type="text/css">
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css ') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('css/ruang-admin.min.css ')}}" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
-  <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
-  <link rel="stylesheet" href="{{ asset('css/ruang-admin.css') }}">
-</head>
-
-<body id="page-top">
-  <div id="wrapper">
+<div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" >
@@ -80,10 +58,23 @@
           </button>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown no-arrow">
-             
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
-
+                <form class="navbar-search" action="{{ route('cari_resep_admin') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-1 small" placeholder="ketik kata kunci pencarian..."
+                            aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;" name="cari">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit"> <!-- Ubah type button ke submit -->
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
               </div>
             </li>
 
@@ -109,53 +100,3 @@
           </ul>
         </nav>
         <!-- Topbar -->
-
-        {{-- isi dasbord --}}
-
-        <div class="container">
-            <h1 class="main-heading">Selamat Datang Admin</h1>
-            <div class="subtext">
-                <p>Selamat datang di dashboard admin kami.</p>
-                <p>Di sini, Anda memiliki akses penuh untuk mengelola resep MPASI seperti mengedit, menambahkan, dan menghapus resep</p>
-                <p>Anda juga dapat melihat aktivitas riwayat resep pengguna</p>
-                <p>Terima Kasih</p>
-            </div>
-        </div>
-
-          <!-- Modal Logout -->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Are you sure you want to logout?</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{ route('logout')}}" class="btn btn-primary">Logout</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!---Container Fluid-->
-      </div>
-    </div>
-  </div>
-
-  <script src="{{ asset('vendor/jquery/jquery.min.js ') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>
-  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js ') }}"></script>
-  <script src="{{ asset('js/ruang-admin.min.js') }}"></script>
-  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-</body>
-
-</html>

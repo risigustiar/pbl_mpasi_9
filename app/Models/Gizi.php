@@ -22,6 +22,6 @@ class Gizi extends Model
 
     public function resep()
     {
-        return $this->belongsTo(Resep::class, 'id_resep', 'id_resep');
+        return $this->belongsTo(Resep::class, 'id_resep');
     }
 }

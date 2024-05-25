@@ -7,13 +7,16 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Favorit | BabyBit</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
     <!-- Css Styles -->
+    <link rel="icon" href="{{ asset("img/logo-web.png") }}">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
@@ -36,7 +39,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="img/" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -81,60 +84,13 @@
     </div>
     <!-- NAVBAR End -->
 
-    <!-- Header YANG DI ATAS  -->
-    <header class="header ">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> PBL@Gmail.com</li>
-                                <li>PROJECT PBL APLIKASI MPASI</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                            </div>
-                            |
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                            |
-                                <div>Indonesia</div>
-                            </div>
-                            |
-                            <div class="header__top__right__auth">
-                                <a href="{{ route('logout') }}"><i class="fa fa-user"></i> Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li ><a href="{{ route('orangtua') }}">Halaman Utama</a></li>
-                            <li ><a href="{{ route('resepuser' ) }}">Semua resep</a></li>
-                            <li class="active"><a href="{{ route('favorit')}}">Favorit</a></li>
-                            <li><a href="{{ route('riwayat')}}">Riwayat</a></li>
+    {{-- header --}}
+   <x-header />
 
-                        </ul>
-                    </nav>
-                </div>
-        </div>
-    </header>
+   <div class="container">
+       @yield('content')
+   </div>
     <!-- Header End -->
-    <!-- menu aplikasi -->
 
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
@@ -227,17 +183,13 @@
                                             <div style="background-color: #f2f2f2; padding: 5px 10px; display: inline-block;">
                                                 <p style="font-weight: bold; margin-right: 10px;">Usia: {{ $favorit->resep->usia }}</p>
                                                 <p style="font-weight: bold;">Kategori: {{ $favorit->resep->kategori }}</p>
-
-
-                                                <form id="favoritForm" action="{{ route('hapus_favorit', $favorit->id_resep) }}" method="get">
+                                                <form id="favoritForm" action="{{ route('hapus_favorit', $favorit->id_resep) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button id="tambahButton" style="background-color: #dc3545; border: none; cursor: pointer; padding: 5px 10px; border-radius: 5px; color: white; font-weight: bold;">
+                                                    <button id="hapusButton" type="button" style="background-color: #dc3545; border: none; cursor: pointer; padding: 5px 10px; border-radius: 5px; color: white; font-weight: bold;">
                                                         <i class="fa-solid fa-trash" style="color: white;"></i> Hapus
                                                     </button>
                                                 </form>
-
-
                                             </div>
                                         </div>
                                     </a>
@@ -268,7 +220,55 @@
         var i = {{ count($favoritResep) }};
     </script>
 
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Apakah anda yakin ingin logout?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Logout Berhasil!',
+                    text: 'Anda akan logout dari akun Anda.',
+                    icon: 'success',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                });
+                setTimeout(function() {
+                    window.location.href = "{{ route('logout') }}";
+                }, 2000);
+            }
+        });
+    }
+</script>
+{{-- hapus --}}
+<script>
+    document.getElementById('hapusButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah pengiriman form default
 
+        Swal.fire({
+            title: 'Konfirmasi Hapus',
+            text: 'Anda yakin ingin menghapus resep ini dari favorit?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Kirim form setelah konfirmasi
+                document.getElementById('favoritForm').submit();
+            }
+        });
+    });
+</script>
 
 </body>
 

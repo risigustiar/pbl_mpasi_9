@@ -44,8 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/input_resep', [ResepController::class, 'input'])->name('input_resep')->middleware('user:admin');
     Route::get('/resep', [ResepController::class, 'index'])->name('resep')->middleware('user:admin');
     Route::get('/hapus_resep_admin/{id_resep}',[ResepController::class,'hapus_resep_admin'])->name('hapus_resep_admin')->middleware('user:admin');
-    Route::post('/edit_resep/{id_resep}',[ResepController::class,'edit_resep'])->name('edit_resep')->middleware('user:admin');
+    Route::get('/edit_resep/{id_resep}',[ResepController::class,'edit_resep'])->name('edit_resep')->middleware('user:admin');
     Route::put('/update_resep/{id_resep}',[ResepController::class,'update_resep'])->name('update_resep')->middleware('user:admin');
+    Route::get('/cari_resep_admin', [ResepController::class, 'cari_resep_admin'])->name('cari_resep_admin')->middleware('user:admin');
 
 
     Route::get('/riwayat_admin',[AdminController::class, 'riwayat_admin'])->name('riwayat_admin')->middleware('user:admin');
@@ -62,7 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/detail_favorit/{id_resep}', [FavoritController::class, 'detail_favorit'])->name('detail_favorit')->middleware('user:orangtua');
     Route::post('/back_favorit/{id_resep}', [FavoritController::class, 'back_favorit'])->name('back_favorit')->middleware('user:orangtua');
     Route::post('/tambah_favorit/{id_resep}', [FavoritController::class, 'tambah_Favorit'])->name('tambah_favorit')->middleware('user:orangtua');
-    Route::get('/hapus_favorit/{id_resep}', [FavoritController::class, 'hapus_Favorit'])->name('hapus_favorit')->middleware('user:orangtua');
+    Route::delete('/hapus_favorit/{id_resep}', [FavoritController::class, 'hapus_Favorit'])->name('hapus_favorit')->middleware('user:orangtua');
 
     Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat')->middleware('user:orangtua');
     Route::post('/tambah_riwayat/{id_resep}', [RiwayatController::class, 'tambah_riwayat'])->name('tambah_riwayat')->middleware('user:orangtua');
@@ -72,6 +73,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/panduan', [PanduanController::class, 'index'])->name('panduan')->middleware('user:orangtua');
 
     Route::get('/logout',[SesiController::class,'logout'])->name('logout');
+    Route::get('/confirm-logout', [SesiController::class, 'confirmLogout'])->name('confirm-logout');
+
 
 });
 
@@ -85,7 +88,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/resepadmin',[AdminController::class,'resepadmin'])->name('resepadmin');
 
 
-Route::get('/edit_resep/{id_resep}',[ResepController::class,'edit_resep']);
+
 Route::POST('/update_resep/{id_resep}',[ResepController::class,'update_resep']);
 
 

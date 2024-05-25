@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Resep</title>
+    <title>Detail Resep | BebyBit</title>
     <style>
         /* Letakkan gaya tambahan di sini */
         .container {

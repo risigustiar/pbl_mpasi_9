@@ -7,12 +7,15 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BabyBit | Home</title>
+    <title>Home | BabyBit</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Css Styles -->
+    <link rel="icon" href="{{ asset("img/logo-web.png") }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} " type="text/css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} " type="text/css">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
@@ -31,6 +34,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+
 
 
 
@@ -54,7 +58,7 @@
                 <div>Indonesia</div>
             </div>
             <div class="header__top__right__auth">
-                <a href="{{ route('logout') }}"><i class="fa fa-user"></i> Logout</a>
+                <a href="{{ route('logout') }}" class="btn logout"><i class="fa fa-user"></i> Logout</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -78,31 +82,39 @@
     <!-- NAVBAR End -->
 
     <!-- Header YANG DI ATAS  -->
-    <header class="header ">
+    <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> PBL@Gmail.com</li>
-                                <li>PROJECT PBL APLIKASI MPASI</li>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 10px;">
+                                <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
+                                    <i class="fa fa-envelope" style="margin-right: 5px;"></i> PBL@Gmail.com
+                                </li>
+                                <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
+                                    Selamat Datang {{ Auth::user()->name }}
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            <div class="header__top__right__social">
-                            </div>
-                            |
                             <div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
-                            |
-                                <div>Indonesia</div>
                             </div>
-                            |
                             <div class="header__top__right__auth">
-                                <a href="{{ route('logout') }}"><i class="fa fa-user"></i> Logout</a>
+                                {{-- <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff;
+                                 border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onclick="confirmLogout()">
+                                    <class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
+                                        <i class="fa fa-sign-out-alt"></i> Logout
+                                    </class=>
+                                </button> --}}
+                                <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">
+                                    <span class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
+                                        <i class="fa fa-sign-out-alt"></i> Logout
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -155,7 +167,7 @@
                             <form action="{{ route('cari_resep')}}" method="get">
                                 <div class="hero__search__categories">
                                     Resep MPASI
-                                    <span class="arrow_carrot-down"></span>
+
                                 </div>
                                 <input type="text" placeholder="Cari Resep MPASI" name="cari">
                                 <button type="submit" class="site-btn">Cari</button>
@@ -180,41 +192,7 @@
     </section>
     <!-- sampai dengan panduan MPASI -->
 
-    <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container">
-            <div class="row">
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-1.jpg') }}">
-                            <h5><a href="#">Fresh Fruit</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-2.jpg') }}">
-                            <h5><a href="#">Dried Fruit</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-3.jpg') }}">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-4.jpg') }}">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-5.jpg') }}">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Categories Section End -->
+
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
@@ -300,6 +278,34 @@ if ($usia >= 6 && $usia <= 8) {
     <script src="{{ asset('js/mixitup.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Apakah anda yakin ingin logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Logout',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Logout Berhasil!',
+                        text: 'Anda akan logout dari akun Anda.',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        window.location.href = "{{ route('logout') }}";
+                    }, 2000);
+                }
+            });
+        }
+    </script>
 
 
 

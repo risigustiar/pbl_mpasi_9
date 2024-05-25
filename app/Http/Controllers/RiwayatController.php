@@ -6,6 +6,7 @@ use App\Models\Bahan;
 use App\Models\Gizi;
 use App\Models\Resep;
 use App\Models\Riwayat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -74,6 +75,11 @@ class RiwayatController extends Controller
     DB::table('riwayats')->where('id_resep', $id_resep)->where('id', Auth::id())->delete();
 
     return redirect()->back();
+   }
+
+   public function parent()
+   {
+       return $this->belongsTo(User::class, 'parent_id');
    }
 
     }

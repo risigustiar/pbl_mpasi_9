@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/logo.png" rel="icon">
+  <link href="img/logo-web.png" rel="icon">
   <title>BebyBit - Dashboard</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -18,108 +18,13 @@
 </head>
 
 <body id="page-top">
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-        <div class="sidebar-brand-icon">
-          <img src="img/logo/logo2.png">
-        </div>
-        <div class="sidebar-brand-text mx-3">BebyBit</div>
-      </a>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-      <hr class="sidebar-divider">
-  <div class="sidebar-heading">
-    Features
+  {{-- header --}}
+  <x-header_admin />
+
+  <div class="container">
+      @yield('content')
   </div>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
-       aria-expanded="true" aria-controls="collapseBootstrap" title="Halaman Kelola">
-      <i class="far fa-fw fa-window-maximize"></i>
-      <span>Halaman Kelola</span>
-    </a>
-        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kelola Resep</h6>
-            <a class="collapse-item" href="{{ route('resep') }}">Resep MPASI</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Cek Aktivitas Pengguna</span>
-        </a>
-        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="{{ route('riwayat_admin') }}">Riwayat</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-
-      <hr class="sidebar-divider">
-      <div class="version" id="version-ruangadmin"></div>
-    </ul>
-    <!-- Sidebar -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-        <!-- TopBar -->
-        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="What do you want to look for?"
-                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="{{ asset('img/profil/profil.webp ') }}" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <!-- Topbar -->
+   <!-- Header End -->
 
 
 
@@ -286,7 +191,7 @@
                                             </a>
 
                                             |
-                                            <a href="#" class="btn btn-warning p-wd-1 editButton" data-id="{{ $d->id_resep }}" data-toggle="modal" data-target="#EditModal">
+                                            <a href="{{ route('edit_resep', $d->id_resep) }}" class="btn btn-warning p-wd-1 editButton">
                                                 <i class="fa-solid fa-pen-to-square p-0"></i><br>
                                                 <span style="font-size: 12px;">Edit</span>
                                             </a>
@@ -304,135 +209,7 @@
 
 
         <!-- Modal Edit Resep -->
-        @foreach ($data as $d)
-        <div class="modal" id="EditModal">
-            <div class="card m-5">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Form Edit Resep MPASI</h6>
-                </div>
-                <div class="card-body">
-                    <form action="#" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="edit_nama_resep">Nama Resep MPASI</label>
-                            <input type="text" class="form-control" id="edit_nama_resep" name="nama_resep" placeholder="Nama Resep MPASI" value="{{ $d->nama_resep }}" required>
-                        </div>
-                        @error('nama_resep')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
 
-                        <div class="form-group">
-                            <label for="edit_kategori">Kategori</label>
-                            <select class="form-control custom-select" id="edit_kategori" name="kategori" style="background-color: #ffffff; border-color: #7626b3; color: #000000;">
-                                <option disabled selected style="display: none;">-- Pilih kategori --</option>
-                                <option value="Makanan Pokok" {{ $d->kategori == 'Makanan Pokok' ? 'selected' : '' }}>Makanan Pokok</option>
-                                <option value="Lauk Hewani" {{ $d->kategori == 'Lauk Hewani' ? 'selected' : '' }}>Lauk Hewani</option>
-                                <option value="Lemak" {{ $d->kategori == 'Lemak' ? 'selected' : '' }}>Lemak</option>
-                                <option value="Sayuran" {{ $d->kategori == 'Sayuran' ? 'selected' : '' }}>Sayuran</option>
-                            </select>
-                        </div>
-                        @error('kategori')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-
-                        <div class="form-group">
-                            <label for="edit_kandunganGizi">Kandungan Gizi:</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="edit_karbohidrat">Karbohidrat (gram):</label>
-                                    <input type="number" class="form-control" id="edit_karbohidrat" min="0" step="0.1" placeholder="Masukkan karbohidrat" value="{{ $d->karbohidrat }}" name="karbohidrat" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="edit_protein">Protein (gram):</label>
-                                    <input type="number" class="form-control" id="edit_protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" value="{{ $d->protein }}" name="protein" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="edit_lemak">Lemak (gram):</label>
-                                    <input type="number" class="form-control" id="edit_lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" value="{{ $d->lemak }}" name="lemak" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="edit_energi">Energi (kalori):</label>
-                                    <input type="number" class="form-control" id="edit_energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" value="{{ $d->energi }}" name="energi" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        @error('usia')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-
-                        <div class="form-group">
-                          <label for="edit_customFile" style="display:block;">Pilih Gambar:</label>
-                          <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="edit_customFile" name="gambar" onchange="previewEditImage(event)">
-                              <label class="custom-file-label" for="edit_customFile" id="edit_customFileLabel"><i class="fas fa-cloud-upload-alt"></i> Pilih Gambar</label>
-                          </div>
-                          <img src="{{ asset($d->gambar) }}" id="edit_preview" style="display:block; max-width:200px;">
-                      </div>
-                        @error('gambar')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-
-                        <div class="form-group">
-                            <label for="edit_kandunganGizi">Kandungan Gizi:</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="edit_karbohidrat">Karbohidrat (gram):</label>
-                                    <input type="number" class="form-control" id="edit_karbohidrat" min="0" step="0.1" placeholder="Masukkan jumlah karbohidrat" value="{{ $d->karbohidrat }}" name="karbohidrat" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="edit_protein">Protein (gram):</label>
-                                    <input type="number" class="form-control" id="edit_protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" value="{{ $d->protein }}" name="protein" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="edit_lemak">Lemak (gram):</label>
-                                    <input type="number" class="form-control" id="edit_lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" value="{{ $d->lemak }}" name="lemak" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="edit_energi">Energi (kalori):</label>
-                                    <input type="number" class="form-control" id="edit_energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" value="{{ $d->energi }}" name="energi" required>
-                                </div>
-                            </div>
-                        </div>
-                        @error('karbohidrat')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        @error('protein')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        @error('lemak')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        @error('energi')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-
-                        <div class="form-group">
-                            <label for="edit_cara_pembuatan" class="form-label">Cara pembuatan</label>
-                            <textarea name="cara_pembuatan" class="form-control" rows="5" placeholder="Tuliskan cara pembuatan resep di sini..." required>{{ $d->cara_pembuatan }}</textarea>
-                            @error('cara_pembuatan')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                          <label for="inputBahan">Bahan-bahan</label>
-                          <div id="bahanInputs">
-                              <!-- Kolom bahan akan ditambahkan di sini oleh JavaScript -->
-                          </div>
-                          <button type="button" class="btn btn-primary mt-2" id="tambahKolomButton"><i class="fa-solid fa-plus"></i> Tambah Bahan</button>
-                      </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="reset" class="btn btn-danger">Batal</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        @endforeach
         {{-- modal from Edit --}}
           <!--Row-->
           <a class="scroll-to-top rounded" href="#page-top">
@@ -621,7 +398,7 @@
 }
 
 </script>
-{{--di edit untuk gambar baru --}}
+{{-- di edit untuk gambar baru
 <script>
   function previewEditImage(event) {
       var input = event.target;
@@ -634,99 +411,73 @@
       reader.readAsDataURL(input.files[0]);
   }
 </script>
-{{-- untuk edit --}}
-@foreach ($data as $d)
 <script>
-  function tambahKolomBahan(data) {
-      // Membuat elemen div untuk kolom bahan
-      var divBahan = document.createElement("div");
-      divBahan.classList.add("form-row", "bahanInput");
+    function tambahKolomBahan() {
+        var divBahan = document.createElement("div");
+        divBahan.classList.add("form-row", "bahanInput");
 
-      // Membuat input untuk nama bahan
-      var inputNamaBahan = document.createElement("input");
-      inputNamaBahan.type = "text";
-      inputNamaBahan.classList.add("form-control", "col");
-      inputNamaBahan.placeholder = "Nama Bahan";
-      inputNamaBahan.name = "nama_bahan[]";
+        var inputNamaBahan = document.createElement("input");
+        inputNamaBahan.type = "text";
+        inputNamaBahan.classList.add("form-control", "col");
+        inputNamaBahan.placeholder = "Nama Bahan";
+        inputNamaBahan.name = "nama_bahan[]";
+        inputNamaBahan.required = true;
 
-      // Membuat input untuk ukuran
-      var inputUkuran = document.createElement("input");
-      inputUkuran.type = "text";
-      inputUkuran.classList.add("form-control", "col");
-      inputUkuran.placeholder = "Takaran";
-      inputUkuran.name = "takaran[]";
+        var inputUkuran = document.createElement("input");
+        inputUkuran.type = "text";
+        inputUkuran.classList.add("form-control", "col");
+        inputUkuran.placeholder = "Takaran";
+        inputUkuran.name = "takaran[]";
+        inputUkuran.required = true;
 
-      // Membuat select untuk takaran
-      var selectTakaran = document.createElement("select");
-      selectTakaran.classList.add("form-control", "col");
-      selectTakaran.name = "satuan[]";
-      var optionPilih = document.createElement("option");
-      optionPilih.value = "";
-      optionPilih.textContent = "Pilih Takaran";
-      selectTakaran.appendChild(optionPilih);
-      var optionSdt = document.createElement("option");
-      optionSdt.value = "sdt";
-      optionSdt.textContent = "Sendok Teh (sdt)";
-      selectTakaran.appendChild(optionSdt);
-      var optionSdm = document.createElement("option");
-      optionSdm.value = "sdm";
-      optionSdm.textContent = "Sendok Makan (sdm)";
-      selectTakaran.appendChild(optionSdm);
-      var optionGram = document.createElement("option");
-      optionGram.value = "gram";
-      optionGram.textContent = "Gram (gr)";
-      selectTakaran.appendChild(optionGram);
-      var optionMl = document.createElement("option");
-      optionMl.value = "ml";
-      optionMl.textContent = "Mililiter (ml)";
-      selectTakaran.appendChild(optionMl);
+        var selectTakaran = document.createElement("select");
+        selectTakaran.classList.add("form-control", "col");
+        selectTakaran.name = "satuan[]";
+        selectTakaran.required = true;
 
-      // Jika ada data yang diberikan, isi nilai awal untuk kolom bahan
-      if (data) {
-          inputNamaBahan.value = data.nama_bahan;
-          inputUkuran.value = data.takaran;
-          selectTakaran.value = data.satuan;
-      }
+        var optionPilih = document.createElement("option");
+        optionPilih.value = "";
+        optionPilih.textContent = "Pilih Takaran";
+        optionPilih.disabled = true;
+        optionPilih.selected = true;
+        selectTakaran.appendChild(optionPilih);
 
-      // Membuat button untuk menghapus kolom bahan
-      var buttonHapus = document.createElement("button");
-      buttonHapus.type = "button";
-      buttonHapus.classList.add("btn", "btn-danger", "ml-2");
-      buttonHapus.textContent = "Hapus";
-      buttonHapus.onclick = function() {
-          divBahan.remove();
-      };
+        var optionSdt = document.createElement("option");
+        optionSdt.value = "sdt";
+        optionSdt.textContent = "Sendok Teh (sdt)";
+        selectTakaran.appendChild(optionSdt);
 
-      // Menambahkan input nama bahan, select takaran, input ukuran, dan button hapus ke dalam div kolom bahan
-      divBahan.appendChild(inputNamaBahan);
-      divBahan.appendChild(inputUkuran);
-      divBahan.appendChild(selectTakaran);
-      divBahan.appendChild(buttonHapus);
+        var optionSdm = document.createElement("option");
+        optionSdm.value = "sdm";
+        optionSdm.textContent = "Sendok Makan (sdm)";
+        selectTakaran.appendChild(optionSdm);
 
-      // Menambahkan div kolom bahan ke dalam div bahanInputs
-      var divBahanInputs = document.getElementById("bahanInputs");
-      divBahanInputs.appendChild(divBahan);
-  }
+        var optionGram = document.createElement("option");
+        optionGram.value = "gram";
+        optionGram.textContent = "Gram (gr)";
+        selectTakaran.appendChild(optionGram);
 
-  // Memanggil fungsi tambahKolomBahan() sebanyak jumlah data bahan yang tersedia untuk diedit
-  var dataBahan = [
-      {
-          {{$d->nama_bahan}},
-          {{$d->takaran}},
-          {{$d->satuan}},
-      },
-  ];
-  dataBahan.forEach(function(data) {
-      tambahKolomBahan(data);
-  });
+        var optionMl = document.createElement("option");
+        optionMl.value = "ml";
+        optionMl.textContent = "Mililiter (ml)";
+        selectTakaran.appendChild(optionMl);
 
-  // Mendengarkan klik tombol "Tambah Bahan" untuk menambah kolom bahan
-  document.getElementById("tambahKolomButton").addEventListener("click", function() {
-      tambahKolomBahan();
-  });
-</script>
-{{-- unutuk edit --}}
-@endforeach
+        var buttonHapus = document.createElement("button");
+        buttonHapus.type = "button";
+        buttonHapus.classList.add("btn", "btn-danger", "ml-2");
+        buttonHapus.textContent = "Hapus";
+        buttonHapus.onclick = function() {
+            divBahan.remove();
+        };
+
+        divBahan.appendChild(inputNamaBahan);
+        divBahan.appendChild(inputUkuran);
+        divBahan.appendChild(selectTakaran);
+        divBahan.appendChild(buttonHapus);
+
+        document.getElementById("bahanInputs").appendChild(divBahan);
+    }
+</script> --}}
 
 
 </body>

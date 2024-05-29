@@ -186,7 +186,7 @@
                                                 <form id="favoritForm" action="{{ route('hapus_favorit', $favorit->id_resep) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button id="hapusButton" type="button" style="background-color: #dc3545; border: none; cursor: pointer; padding: 5px 10px; border-radius: 5px; color: white; font-weight: bold;">
+                                                    <button type="submit" style="background-color: #dc3545; border: none; cursor: pointer; padding: 5px 10px; border-radius: 5px; color: white; font-weight: bold;">
                                                         <i class="fa-solid fa-trash" style="color: white;"></i> Hapus
                                                     </button>
                                                 </form>
@@ -247,28 +247,7 @@
         });
     }
 </script>
-{{-- hapus --}}
-<script>
-    document.getElementById('hapusButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Mencegah pengiriman form default
 
-        Swal.fire({
-            title: 'Konfirmasi Hapus',
-            text: 'Anda yakin ingin menghapus resep ini dari favorit?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus',
-            cancelButtonText: 'Tidak'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Kirim form setelah konfirmasi
-                document.getElementById('favoritForm').submit();
-            }
-        });
-    });
-</script>
 
 </body>
 

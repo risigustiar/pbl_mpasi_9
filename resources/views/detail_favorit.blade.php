@@ -51,6 +51,16 @@
             margin-top: 20px;
         }
 
+        .text-area {
+            width: 100%;
+            height: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            border: none;
+            resize: vertical;
+        }
+
         /* Gaya tambahan */
         .ingredient-card,
         .nutrition-card {
@@ -172,7 +182,7 @@
 
 <div class="ingredient-card">
     <h2>Cara Pembuatan:</h2>
-    <p>{{ $resep->cara_pembuatan }}</p>
+    <textarea class="text-area" readonly>{{ $resep->cara_pembuatan }}</textarea>
 </div>
 
     <div class="nutrition-card">

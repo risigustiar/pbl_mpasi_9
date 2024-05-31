@@ -51,6 +51,16 @@
             margin-top: 20px;
         }
 
+        .text-area {
+            width: 100%;
+            height: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            border: none;
+            resize: vertical;
+        }
+
         /* Gaya tambahan */
         .ingredient-card,
         .nutrition-card {
@@ -85,6 +95,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
     }
     .large-text {
         font-size: 20px; /* Sesuaikan ukuran teks sesuai kebutuhan */
@@ -94,6 +105,7 @@
         font-size: 35px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
     }
+
     </style>
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
 </head>
@@ -172,7 +184,7 @@
 
 <div class="ingredient-card">
     <h2>Cara Pembuatan:</h2>
-    <p>{{ $resep->cara_pembuatan }}</p>
+    <textarea class="text-area" readonly>{{ $resep->cara_pembuatan }}</textarea>
 </div>
 
     <div class="nutrition-card">
@@ -211,6 +223,7 @@
         };
         xhr.send();
     });
+
 </script>
 </body>
 </html>

@@ -76,7 +76,7 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-danger fixed-top py-3 bacground-blur" id="mainNav" >
                 <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand text-dark" href="#page-top">BabyBit</a>
+                    <a class="navbar-brand text-dark" href="#page-top">Baby bite</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -93,7 +93,7 @@
                     <div class="container px-4 px-lg-5">
                         <div class="row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
                             <div class="col-lg-8 align-self-end">
-                                <h1 class="text-black mb-5 font-weight-bold display-4">Selamat Datang Di Aplikasi MPASI BabyBit</h1>
+                                <h1 class="text-black mb-5 font-weight-bold display-4">Selamat Datang Di Aplikasi MPASI BabyBite</h1>
                                 <hr class="divider" />
                             </div>
                             <div class="col-lg-8 align-self-baseline">

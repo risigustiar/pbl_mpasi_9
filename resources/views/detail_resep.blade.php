@@ -69,6 +69,16 @@
             margin-top: 20px;
         }
 
+        .text-area {
+            width: 100%;
+            height: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            border: none;
+            resize: vertical;
+        }
+
         /* Gaya tambahan */
         .ingredient-card,
         .nutrition-card {
@@ -103,6 +113,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
     }
     .large-text {
         font-size: 20px; /* Sesuaikan ukuran teks sesuai kebutuhan */
@@ -112,6 +123,7 @@
         font-size: 35px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
 
     }
+<<<<<<< HEAD
     @media (max-width: 768px) {
         .recipe-title {
             width: 75%;
@@ -133,6 +145,8 @@
             height: auto;
         }
     }
+=======
+>>>>>>> e390976ddd507c051ee9c47f7bfbdd34a3ffa010
 
     </style>
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
@@ -210,6 +224,13 @@
     </div>
 
 
+<<<<<<< HEAD
+=======
+<div class="ingredient-card">
+    <h2>Cara Pembuatan:</h2>
+    <textarea class="text-area" readonly>{{ $resep->cara_pembuatan }}</textarea>
+</div>
+>>>>>>> e390976ddd507c051ee9c47f7bfbdd34a3ffa010
 
 </div>
 <div class="nutrition-card" style="font-family: Arial, sans-serif; margin-bottom: 20px; padding: 2%; width: 320px; margin-top: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -290,6 +311,7 @@
             xhr.send();
         });
     });
+
 </script>
 
 </body>

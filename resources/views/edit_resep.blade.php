@@ -80,19 +80,18 @@
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-        <!-- TopBar -->
+    <!-- TopBar -->
         <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
           <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown no-arrow">
-              
+
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
               </div>
             </li>
-
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
@@ -114,103 +113,75 @@
             </li>
           </ul>
         </nav>
-        <!-- Topbar -->
+    <!-- Topbar -->
 
     {{-- isi edit --}}
-        <div class="card m-5">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Form Edit Resep MPASI</h6>
-            </div>
-            <div class="card-body">
-                <form action="{{ url('update_resep', $resep->id_resep) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="form-group">
-                        <label for="edit_nama_resep">Nama Resep MPASI</label>
-                        <input type="text" class="form-control" id="edit_nama_resep" name="nama_resep" placeholder="Nama Resep MPASI" value="{{ $resep->nama_resep }}" required>
-                    </div>
-                    @error('nama_resep')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="form-group">
-                        <label for="edit_kategori" style="display:block;">Kategori Makanan :</label>
-                        <select class="form-control custom-select" id="edit_kategori" name="kategori" style="background-color: #ffffff; border-color: #7626b3; color: #000000;">
-                            <option disabled selected style="display: none;">-- Pilih kategori --</option>
-                            <option value="Makanan Pokok" {{ $resep->kategori == 'Makanan Pokok' ? 'selected' : '' }}>Makanan Pokok</option>
-                            <option value="Lauk Hewani" {{ $resep->kategori == 'Lauk Hewani' ? 'selected' : '' }}>Lauk Hewani</option>
-                            <option value="Lemak" {{ $resep->kategori == 'Lemak' ? 'selected' : '' }}>Lemak</option>
-                            <option value="Sayuran" {{ $resep->kategori == 'Sayuran' ? 'selected' : '' }}>Sayuran</option>
-                        </select>
-                    </div>
-                    @error('kategori')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="form-group">
-                        <label for="usia_resep">Usia</label><br>
-                        <div class="usia-options">
-                            <div class="usia-option">
-                                <input type="radio" id="usia1" name="usia" value="6-8 {{ $resep->usia == '6-8' ? 'checked' : ''}} " required>
-                                <label for="usia1">6-8 Bulan</label>
-                            </div>
-                            <div class="usia-option">
-                                <input type="radio" id="usia2" name="usia" value="9-12" {{ $resep->usia == '9-12' ? 'checked' : ''}}  required>
-                                <label for="usia2">9-12 Bulan</label>
-                            </div>
-                            <div class="usia-option">
-                                <input type="radio" id="usia3" name="usia" value="13-18" {{ $resep->usia == '13-18' ? 'checked' : ''}} required>
-                                <label for="usia3">13-18 Bulan</label>
-                            </div>
-                            <div class="usia-option">
-                                <input type="radio" id="usia4" name="usia" value="19-24" {{ $resep->usia == '19-24' ? 'checked ' : ''}} required>
-                                <label for="usia4">19-24 Bulan</label>
-                            </div>
+    <div class="card m-5">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Form Edit Resep MPASI</h6>
+        </div>
+        <div class="card-body">
+            <form action="{{ url('update_resep', $resep->id_resep) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <label for="edit_nama_resep">Nama Resep MPASI</label>
+                    <input type="text" class="form-control" id="edit_nama_resep" name="nama_resep" placeholder="Nama Resep MPASI" value="{{ $resep->nama_resep }}" required style="width: 40%;">
+                </div>
+                @error('nama_resep')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <div class="form-group">
+                    <label for="usia_resep">Usia</label><br>
+                    <div class="usia-options">
+                        <div class="usia-option">
+                            <input type="radio" id="usia1" name="usia" value="6-8" {{ $resep->usia == '6-8' ? 'checked' : '' }} required>
+                            <label for="usia1">6-8 Bulan</label>
+                        </div>
+                        <div class="usia-option">
+                            <input type="radio" id="usia2" name="usia" value="9-11" {{ $resep->usia == '9-11' ? 'checked' : '' }} required>
+                            <label for="usia2">9-11 Bulan</label>
+                        </div>
+                        <div class="usia-option">
+                            <input type="radio" id="usia3" name="usia" value="12-23" {{ $resep->usia == '12-23' ? 'checked' : '' }} required>
+                            <label for="usia3">12-23 Bulan</label>
                         </div>
                     </div>
-
-                  @error('usia')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
-
-                    <div class="form-group">
-                      <label for="edit_customFile" style="display:block;">Pilih Gambar:</label>
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="edit_customFile" name="gambar" onchange="previewEditImage(event)" >
-                          <label class="custom-file-label" for="edit_customFile" id="edit_customFileLabel"><i class="fas fa-cloud-upload-alt"></i> Pilih Gambar</label>
-                      </div>
-                      <img src="{{ asset($resep->gambar) }}" id="edit_preview" style="display:block; max-width:200px;">
-                  </div>
-                    @error('gambar')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="form-group">
-                        <label for="edit_kandunganGizi">Kandungan Gizi:</label>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="edit_karbohidrat">Karbohidrat (gram):</label>
-                                <input type="number" class="form-control" id="edit_karbohidrat" min="0" step="0.1" placeholder="Masukkan jumlah karbohidrat" value="{{ $gizi->karbohidrat }}" name="karbohidrat" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="edit_protein">Protein (gram):</label>
-                                <input type="number" class="form-control" id="edit_protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" value="{{ $gizi->protein }}" name="protein" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="edit_lemak">Lemak (gram):</label>
-                                <input type="number" class="form-control" id="edit_lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" value="{{ $gizi->lemak }}" name="lemak" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="edit_energi">Energi (kalori):</label>
-                                <input type="number" class="form-control" id="edit_energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" value="{{ $gizi->energi }}" name="energi" required>
-                            </div>
+                </div>
+                @error('usia')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <div class="form-group">
+                    <label for="edit_customFile" style="display:block;">Pilih Gambar:</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="edit_customFile" name="gambar" onchange="previewEditImage(event)">
+                        <label class="custom-file-label" for="edit_customFile" id="edit_customFileLabel"><i class="fas fa-cloud-upload-alt"></i> Pilih Gambar</label>
+                    </div>
+                    <img src="{{ asset($resep->gambar) }}" id="edit_preview" style="display:block; margin-top:10px; max-width:200px;">
+                </div>
+                @error('gambar')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <div class="form-group">
+                    <label for="edit_kandunganGizi" class="font-weight-bold">Kandungan Gizi:</label>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="edit_protein">Protein (gram):</label>
+                            <input type="number" class="form-control" id="edit_protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" value="{{ $gizi->protein }}" name="protein" required style="width: 30%;" >
                         </div>
                     </div>
-                    @error('karbohidrat')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="edit_lemak">Lemak (gram):</label>
+                            <input type="number" class="form-control" id="edit_lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" value="{{ $gizi->lemak }}" name="lemak" required style="width: 30%;">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="edit_energi">Energi (kalori):</label>
+                            <input type="number" class="form-control" id="edit_energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" value="{{ $gizi->energi }}" name="energi" required style="width: 30%;">
+                        </div>
+                    </div>
                     @error('protein')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -220,44 +191,53 @@
                     @error('energi')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-
-                    <div class="form-group">
-                        <label for="edit_cara_pembuatan" class="form-label">Cara pembuatan</label>
-                        <textarea name="cara_pembuatan" class="form-control" rows="5" placeholder="Tuliskan cara pembuatan resep di sini..." required>{{ $resep->cara_pembuatan }}</textarea>
-                        @error('cara_pembuatan')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputBahan">Bahan-bahan</label>
-                        <div id="bahanInputs">
-                            @foreach ($bahan as $bahan)
-                                <div class="form-row bahanInput">
-                                    <input type="text" class="form-control col" name="nama_bahan[]" value="{{ $bahan->nama_bahan }}" placeholder="Nama Bahan" required>
-                                    <input type="text" class="form-control col" name="takaran[]" value="{{ $bahan->takaran }}" placeholder="Takaran" required>
-                                    <select class="form-control col" name="satuan[]" required>
-                                        <option value="" disabled>Pilih Takaran</option>
-                                        <option value="sdt" {{ $bahan->satuan == 'sdt' ? 'selected' : '' }}>Sendok Teh (sdt)</option>
-                                        <option value="sdm" {{ $bahan->satuan == 'sdm' ? 'selected' : '' }}>Sendok Makan (sdm)</option>
-                                        <option value="gram" {{ $bahan->satuan == 'gram' ? 'selected' : '' }}>Gram (gr)</option>
-                                        <option value="ml" {{ $bahan->satuan == 'ml' ? 'selected' : '' }}>Mililiter (ml)</option>
-                                    </select>
-                                    <button type="button" class="btn btn-danger ml-2" onclick="this.parentElement.remove();">Hapus</button>
-                                </div>
-                            @endforeach
+                </div>
+                <div class="form-group">
+                    <label for="edit_cara_pembuatan" class="form-label" style="font-weight: bold">Cara pembuatan</label>
+                    <textarea name="cara_pembuatan" class="form-control" rows="5" placeholder="Tuliskan cara pembuatan resep di sini..." required style="width: 50%;">{{ $resep->cara_pembuatan }}</textarea>
+                    @error('cara_pembuatan')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group -mb-2">
+                    <label for="porsi" class="form-label" style="font-weight: bold">Masukkan Jumlah Porsi</label>
+                    <input type="number" class="form-control" id="porsi" min="1" step="1" placeholder="Masukkan jumlah porsi" name="porsi" required style="width: 20%;" value="{{ $resep->porsi }}">
+                    @error('porsi')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="inputBahan">Bahan-bahan</label>
+                    <div id="bahanInputs">
+                        @foreach ($bahan as $item)
+                        <div class="form-row bahanInput mb-2">
+                            <input type="text" class="form-control col mr-2" name="nama_bahan[]" value="{{ $item->nama_bahan }}" placeholder="Nama Bahan" required>
+                            <input type="text" class="form-control col mr-2" name="takaran[]" value="{{ $item->takaran }}" placeholder="Takaran" required>
+                            <select class="form-control col mr-2" name="satuan[]" required>
+                                <option value="" disabled>Pilih Takaran</option>
+                                <option value="gram" {{ $item->satuan == 'gram' ? 'selected' : '' }}>Gram (gr)</option>
+                                <option value="ml" {{ $item->satuan == 'ml' ? 'selected' : '' }}>Mililiter (ml)</option>
+                                <option value="stdm" {{ $item->satuan == 'stdm' ? 'selected' : '' }}>Sendok Teh (std)</option>
+                                <option value="sdm" {{ $item->satuan == 'sdm' ? 'selected' : '' }}>Sendok Makan (sdm)</option>
+                                <option value="ptg" {{ $item->satuan == 'ptg' ? 'selected' : '' }}>Potong (ptg)</option>
+                            </select>
+                            <button type="button" class="btn btn-danger ml-2" onclick="this.parentElement.remove();">Hapus</button>
                         </div>
-                        <button type="button" class="btn btn-primary mt-2" onclick="tambahKolomBahan()">Tambah Bahan</button>
+                        @endforeach
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Batal</button>
-                </form>
-            </div>
+                    <button type="button" class="btn btn-primary mt-2" onclick="tambahKolomBahan()"><i class="fa-solid fa-plus"></i> Tambah Bahan</button>
+                </div>
+                @error('nama_bahan[]')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="reset" class="btn btn-danger">Batal</button>
+            </form>
         </div>
     </div>
     {{-- isi edit --}}
 
-          <!-- Modal Logout -->
+    <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -278,7 +258,6 @@
               </div>
             </div>
           </div>
-
         </div>
         <!---Container Fluid-->
       </div>
@@ -330,75 +309,79 @@
         label.textContent = fileName;
     }
 }
-
 </script>
-  <script>
-      function tambahKolomBahan() {
-          var divBahan = document.createElement("div");
-          divBahan.classList.add("form-row", "bahanInput");
+<script>
+    function tambahKolomBahan() {
+        var divBahan = document.createElement("div");
+        divBahan.classList.add("form-row", "bahanInput", "mb-2"); // menambahkan kelas mb-2 untuk margin bawah
 
-          var inputNamaBahan = document.createElement("input");
-          inputNamaBahan.type = "text";
-          inputNamaBahan.classList.add("form-control", "col");
-          inputNamaBahan.placeholder = "Nama Bahan";
-          inputNamaBahan.name = "nama_bahan[]";
-          inputNamaBahan.required = true;
+        var inputNamaBahan = document.createElement("input");
+        inputNamaBahan.type = "text";
+        inputNamaBahan.classList.add("form-control", "col", "mr-2"); // menambahkan kelas mr-2 untuk margin kanan
+        inputNamaBahan.placeholder = "Nama Bahan";
+        inputNamaBahan.name = "nama_bahan[]";
+        inputNamaBahan.required = true;
 
-          var inputUkuran = document.createElement("input");
-          inputUkuran.type = "text";
-          inputUkuran.classList.add("form-control", "col");
-          inputUkuran.placeholder = "Takaran";
-          inputUkuran.name = "takaran[]";
-          inputUkuran.required = true;
+        var inputUkuran = document.createElement("input");
+        inputUkuran.type = "number";
+        inputUkuran.classList.add("form-control", "col", "mr-2"); // menambahkan kelas mr-2 untuk margin kanan
+        inputUkuran.placeholder = "Jumlah";
+        inputUkuran.name = "takaran[]";
+        inputUkuran.required = true;
 
-          var selectTakaran = document.createElement("select");
-          selectTakaran.classList.add("form-control", "col");
-          selectTakaran.name = "satuan[]";
-          selectTakaran.required = true;
+        var selectTakaran = document.createElement("select");
+        selectTakaran.classList.add("form-control", "col", "mr-2"); // menambahkan kelas mr-2 untuk margin kanan
+        selectTakaran.name = "satuan[]";
+        selectTakaran.required = true;
 
-          var optionPilih = document.createElement("option");
-          optionPilih.value = "";
-          optionPilih.textContent = "Pilih Takaran";
-          optionPilih.disabled = true;
-          optionPilih.selected = true;
-          selectTakaran.appendChild(optionPilih);
+        var optionPilih = document.createElement("option");
+        optionPilih.value = "";
+        optionPilih.textContent = "Pilih Takaran";
+        optionPilih.disabled = true;
+        optionPilih.selected = true;
+        selectTakaran.appendChild(optionPilih);
 
-          var optionSdt = document.createElement("option");
-          optionSdt.value = "sdt";
-          optionSdt.textContent = "Sendok Teh (sdt)";
-          selectTakaran.appendChild(optionSdt);
+        var optionGram = document.createElement("option");
+        optionGram.value = "gram";
+        optionGram.textContent = "Gram (gr)";
+        selectTakaran.appendChild(optionGram);
 
-          var optionSdm = document.createElement("option");
-          optionSdm.value = "sdm";
-          optionSdm.textContent = "Sendok Makan (sdm)";
-          selectTakaran.appendChild(optionSdm);
+        var optionMl = document.createElement("option");
+        optionMl.value = "ml";
+        optionMl.textContent = "mililiter (ml)";
+        selectTakaran.appendChild(optionMl);
 
-          var optionGram = document.createElement("option");
-          optionGram.value = "gram";
-          optionGram.textContent = "Gram (gr)";
-          selectTakaran.appendChild(optionGram);
+        var optionSdt = document.createElement("option");
+        optionSdt.value = "sdt";
+        optionSdt.textContent = "Sendok Teh (sdt)";
+        selectTakaran.appendChild(optionSdt);
 
-          var optionMl = document.createElement("option");
-          optionMl.value = "ml";
-          optionMl.textContent = "Mililiter (ml)";
-          selectTakaran.appendChild(optionMl);
+        var optionSdm = document.createElement("option");
+        optionSdm.value = "sdm";
+        optionSdm.textContent = "Sendok Makan (sdm)";
+        selectTakaran.appendChild(optionSdm);
 
-          var buttonHapus = document.createElement("button");
-          buttonHapus.type = "button";
-          buttonHapus.classList.add("btn", "btn-danger", "ml-2");
-          buttonHapus.textContent = "Hapus";
-          buttonHapus.onclick = function() {
-              divBahan.remove();
-          };
+        var optionPtg = document.createElement("option");
+        optionPtg.value = "ptg";
+        optionPtg.textContent = "Potong (ptg)";
+        selectTakaran.appendChild(optionPtg);
 
-          divBahan.appendChild(inputNamaBahan);
-          divBahan.appendChild(inputUkuran);
-          divBahan.appendChild(selectTakaran);
-          divBahan.appendChild(buttonHapus);
+        var buttonHapus = document.createElement("button");
+        buttonHapus.type = "button";
+        buttonHapus.classList.add("btn", "btn-danger", "ml-2");
+        buttonHapus.textContent = "Hapus";
+        buttonHapus.onclick = function() {
+            divBahan.remove();
+        };
 
-          document.getElementById("bahanInputs").appendChild(divBahan);
-      }
-  </script>
+        divBahan.appendChild(inputNamaBahan);
+        divBahan.appendChild(inputUkuran);
+        divBahan.appendChild(selectTakaran);
+        divBahan.appendChild(buttonHapus);
+
+        document.getElementById("bahanInputs").appendChild(divBahan);
+    }
+</script>
+
 </body>
-
 </html>

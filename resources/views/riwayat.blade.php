@@ -175,7 +175,6 @@
                                     <th><strong><span style="font-size: 1.2em;">N0</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">Nama Resep</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">Usia</span></strong></th>
-                                    <th><strong><span style="font-size: 1.2em;">Kategori</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">Tanggal</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">foto</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">Kelola</span></strong></th>
@@ -187,7 +186,6 @@
                             <td>{{ $loop->iteration }}</td>
                             <td><strong>{{ $resep->resep->nama_resep }}</strong></td>
                             <td><strong>{{ $resep->resep->usia }}</strong></td>
-                            <td><strong>{{ $resep->resep->kategori }}</strong></td>
                             <td><strong>{{ $resep->tanggal }}</strong></td>
                             <td style="max-width: 120px;">
                                 <img src="{{ asset($resep->resep->gambar) }}" alt="#" class="img-fluid" style="max-width: 100%;" width="100px">

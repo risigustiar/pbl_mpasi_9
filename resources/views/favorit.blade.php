@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
+
     <!-- Css Styles -->
     <link rel="icon" href="{{ asset("img/logo-web.png") }}">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -158,15 +159,14 @@
                     <h2 class="section-title">Resep MPASI</h2>
                     <div class="filter__item">
                         <div class="filter__found">
-                            <h6><span>{{ $favoritResep->count() }}</span> Resep MPASI Di Favorit</h6>
+                            <h6><span>{{ $favoritResep->count() }}</span> Resep MPASI ditemukan</h6>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row" id="products">
-                @php $i = 0; @endphp
                 @foreach($favoritResep as $favorit)
-                    <div class="col-lg-4 col-md-6 col-sm-6 mix fresh-meat" id="favorit_{{ $i }}">
+                    <div class="col-lg-4 col-md-6 col-sm-6 mix fresh-meat" id="favorit">
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-header">
@@ -175,20 +175,19 @@
                                             <h6 style="color: #000000; font-weight: bold; display: inline-block; margin-right: 10px; margin-bottom: 0; background-color: #f2dbdb; padding: 5px 10px;">Ditambahkan Pada : {{ $favorit->tanggal }}</h6>
                                         </span>
                                     </div>
-                                    <a href="{{ route('detail_favorit', $favorit->id_resep)}}" class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="{{ $favorit->resep->gambar }}">
-                                        </div>
+                                    <a href="{{ route('detail_resep', $favorit->id_resep)}}" class="product__item">
+                                        <div class="product__item__pic" style="background-image: url('{{ $favorit->resep->gambar }}');"></div>
                                         <div class="product__item__text">
-                                            <h4 style="color: #1a1414; font-weight: bold; background-color: #f2dbdb; padding: 5px 10px; text-align: center;">{{ $favorit->resep->nama_resep }}</h4>
-                                            <div style="background-color: #f2f2f2; padding: 5px 10px; display: inline-block;">
-                                                <p style="font-weight: bold; margin-right: 10px;">Usia: {{ $favorit->resep->usia }}</p>
-                                                <p style="font-weight: bold;">Kategori: {{ $favorit->resep->kategori }}</p>
-                                                <form id="favoritForm" action="{{ route('hapus_favorit', $favorit->id_resep) }}" method="POST">
+                                            <h4>{{ $favorit->resep->nama_resep }}</h4>
+                                            <div>
+                                                <p>Usia: {{ $favorit->resep->usia }}</p>
+                                                <form class="favoritForm" action="{{ route('hapus_favorit', $favorit->id_resep) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" style="background-color: #dc3545; border: none; cursor: pointer; padding: 5px 10px; border-radius: 5px; color: white; font-weight: bold;">
-                                                        <i class="fa-solid fa-trash" style="color: white;"></i> Hapus
+                                                    <button type="submit" style="background-color: rgba(255, 0, 0, 0.8); border: none; border-radius: 5px; color: white; padding: 3px 5px; cursor: pointer;">
+                                                        <i class="fa-solid fa-trash" style="margin-right: 5px;"></i> Hapus
                                                     </button>
+
                                                 </form>
                                             </div>
                                         </div>
@@ -197,11 +196,12 @@
                             </div>
                         </div>
                     </div>
-                    @php $i++; @endphp
                 @endforeach
             </div>
-            </div>
+        </div>
     </section>
+
+
     <!-- Product Section End -->
 
 
@@ -248,6 +248,29 @@
     }
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const forms = document.querySelectorAll('.favoritForm');
+        forms.forEach(form => {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 

@@ -206,9 +206,8 @@
                         <ul>
                             <li class="active" data-filter="*">Semua</li>
                             <li data-filter=".oranges">6-8 Bulan</li>
-                            <li data-filter=".fresh-meat">9-12 Bulan</li>
-                            <li data-filter=".vegetables">13-18 Bulan</li>
-                            <li data-filter=".fastfood">19-24 bulan</li>
+                            <li data-filter=".fresh-meat">9-11 Bulan</li>
+                            <li data-filter=".vegetables">13-23 Bulan</li>
                         </ul>
                     </div>
                 </div>
@@ -222,9 +221,9 @@
 // Tentukan kelas filter berdasarkan usia
 if ($usia >= 6 && $usia <= 8) {
     echo 'oranges';
-} elseif ($usia >= 9 && $usia <= 12) {
+} elseif ($usia >= 9 && $usia <= 11) {
     echo 'fresh-meat';
-} elseif ($usia >= 13 && $usia <= 18) {
+} elseif ($usia >= 12 && $usia <= 23) {
     echo 'vegetables';
 } else {
     echo 'fastfood';

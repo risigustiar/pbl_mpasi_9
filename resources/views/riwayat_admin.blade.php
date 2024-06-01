@@ -89,8 +89,8 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="{{ asset('img/boy.png ') }}"" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                <img class="img-profile rounded-circle" src="{{ asset('img/profil/profil.webp ') }}" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -134,7 +134,6 @@
                                         <th><strong><span style="font-size: 1.2em;">N0</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Nama Resep</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Usia</span></strong></th>
-                                        <th><strong><span style="font-size: 1.2em;">Kategori</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Tanggal</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">foto</span></strong></th>
                                     </tr>
@@ -145,7 +144,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td><strong>{{ $resep->resep->nama_resep }}</strong></td>
                                 <td><strong>{{ $resep->resep->usia }}</strong></td>
-                                <td><strong>{{ $resep->resep->kategori }}</strong></td>
                                 <td><strong>{{ $resep->tanggal }}</strong></td>
                                 <td style="max-width: 120px;">
                                     <img src="{{ asset($resep->resep->gambar) }}" alt="#" class="img-fluid" style="max-width: 100%;" width="100px">

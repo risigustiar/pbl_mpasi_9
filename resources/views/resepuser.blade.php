@@ -161,24 +161,26 @@
             </div>
             <div class="row" id="products">
                 @foreach($resep as $rsp)
-                <div class="col-lg-4 col-md-6 col-sm-6 mix {{ $rsp->kategori }}">
+                <div class="col-lg-4 col-md-6 col-sm-2 mix {{ $rsp->kategori }}">
                     <div class="card">
                         <div class="card-body">
                             <a href="{{ route('detail_resep', $rsp->id_resep) }}" class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{ $rsp->gambar }}">
-                                </div>
+                                <div class="product__item__pic" style="background-image: url('{{ $rsp->gambar }}');"></div>
                                 <div class="product__item__text">
-                                    <h6>{{ $rsp->nama_resep }}</h6>
+                                    <h4>{{ $rsp->nama_resep }}</h4>
                                     <p>Usia: {{ $rsp->usia }}</p>
-                                    <p>Kategori: {{ $rsp->kategori }}</p>
-                                </a>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
+        </div>
     </section>
+
+
+
     <!-- Product Section End -->
 
 

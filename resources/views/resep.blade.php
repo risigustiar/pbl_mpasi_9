@@ -39,23 +39,9 @@
                     @csrf
                     <div class="form-group">
                         <label for="nama_resep">Nama Resep MPASI</label>
-                        <input type="text" class="form-control" id="nama_resep" name="nama_resep" placeholder="Nama Resep MPASI" required>
+                        <input type="text" class="form-control" id="nama_resep" name="nama_resep" placeholder="Nama Resep MPASI" required style="width: 40%;">
                     </div>
                     @error('nama_resep')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="form-group">
-                        <label for="kategori">Kategori</label>
-                        <select class="form-control custom-select" id="kategori" name="kategori" style="background-color: #ffffff; border-color: #7626b3; color: #000000;">
-                            <option disabled selected style="display: none;">-- Pilih kategori --</option>
-                            <option value="Makanan Pokok">Makanan Pokok</option>
-                            <option value="Lauk Hewani">Lauk Hewani</option>
-                            <option value="Lemak">Lemak</option>
-                            <option value="Sayuran">Sayuran</option>
-                        </select>
-                    </div>
-                    @error('kategori')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
@@ -68,15 +54,11 @@
                             </div>
                             <div class="usia-option">
                                 <input type="radio" id="usia2" name="usia" value="9-12" required>
-                                <label for="usia2">9-12 Bulan</label>
+                                <label for="usia2">9-11 Bulan</label>
                             </div>
                             <div class="usia-option">
                                 <input type="radio" id="usia3" name="usia" value="13-18" required>
-                                <label for="usia3">13-18 Bulan</label>
-                            </div>
-                            <div class="usia-option">
-                                <input type="radio" id="usia4" name="usia" value="19-24" required>
-                                <label for="usia4">19-24 Bulan</label>
+                                <label for="usia3">12-23 Bulan</label>
                             </div>
                         </div>
                     </div>
@@ -98,38 +80,44 @@
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                    <div class="form-group">
-                        <label for="kandunganGizi">Kandungan Gizi:</label>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="karbohidrat">Karbohidrat (gram):</label>
-                                <input type="number" class="form-control" id="karbohidrat" min="0" step="0.1" placeholder="Masukkan jumlah karbohidrat" name="karbohidrat" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="protein">Protein (gram):</label>
-                                <input type="number" class="form-control" id="protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" name="protein" required>
-                            </div>
+                <div class="form-group">
+                    <label for="kandunganGizi" class="font-weight-bold">Kandungan Gizi:</label>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="protein">Protein (gram):</label>
+                            <input type="number" class="form-control" id="protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" name="protein" required style="width: 30%;">
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="lemak">Lemak (gram):</label>
-                                <input type="number" class="form-control" id="lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" name="lemak" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="energi">Energi (kalori):</label>
-                                <input type="number" class="form-control" id="energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" name="energi" required>
-                            </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="lemak">Lemak (gram):</label>
+                            <input type="number" class="form-control" id="lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" name="lemak" required style="width: 30%;">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="energi">Energi (kalori):</label>
+                            <input type="number" class="form-control" id="energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" name="energi" required style="width: 30%;">
                         </div>
                     </div>
                     @error('gizi')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-
+                    </div>
 
                   <div>
-                    <Label for="cara_pembuatan" class="form-label">Cara pembuatan</Label>
-                    <textarea name="cara_pembuatan" class="form-control" rows="5" placeholder="Tuliskan cara pembuatan resep di sini..." required></textarea>
+                    <Label for="cara_pembuatan" class="form-label" style="font-weight: bold">Cara pembuatan</Label>
+                    <textarea name="cara_pembuatan" class="form-control" rows="5" placeholder="Tuliskan cara pembuatan resep di sini..." required style="width: 50%"></textarea>
                     @error('cara_pembuatan')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  </div>
+
+
+                  <div class="form-group -mb-2">
+                    <Label for="porsi" class="form-label" style="font-weight: bold" >Masukkan Jumlah Porsi</Label>
+                    <input type="number" class="form-control" id="porsi" min="1" step="1" placeholder="Masukkan jumlah porsi" name="porsi" required style="width: 20% ">
+                    @error('porsi')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                   </div>
@@ -169,7 +157,6 @@
                                 <tr>
                                     <th>Nama Resep</th>
                                     <th>Usia</th>
-                                    <th>Kategori</th>
                                     <th>Foto</th>
                                     <th>Action</th>
                                 </tr>
@@ -182,14 +169,12 @@
                                     <tr>
                                         <td>{{ $d->nama_resep }}</td>
                                         <td>{{ $d->usia }}</td>
-                                        <td>{{ $d->kategori }}</td>
                                         <td><img src="{{ asset($d->gambar) }}" alt="Gambar Resep" width="100" style="max-height: 100px;"></td>
                                         <td>
                                             <a href="#" class="btn btn-danger p-wd-0" onclick="hapusResep({{ $d->id_resep }})">
                                                 <i class="fa-solid fa-trash"></i><br>
                                                 <span style="font-size: 10px;">Hapus</span>
                                             </a>
-
                                             |
                                             <a href="{{ route('edit_resep', $d->id_resep) }}" class="btn btn-warning p-wd-1 editButton">
                                                 <i class="fa-solid fa-pen-to-square p-0"></i><br>
@@ -205,7 +190,7 @@
                             </tbody>
                         </table>
                     </div>
-      <div>
+                <div>
 
 
         <!-- Modal Edit Resep -->
@@ -225,77 +210,89 @@
         });
         </script>
 
-
-
-
         <!-- javascript modal bahan-bahan  -->
         <script>
-        function tambahKolomBahan() {
-          // Membuat elemen div untuk kolom bahan
-          var divBahan = document.createElement("div");
-          divBahan.classList.add("form-row", "bahanInput");
+            function tambahKolomBahan() {
+                // Membuat elemen div untuk kolom bahan
+                var divBahan = document.createElement("div");
+                divBahan.classList.add("form-row", "bahanInput");
 
-          // Membuat input untuk nama bahan
-          var inputNamaBahan = document.createElement("input");
-          inputNamaBahan.type = "text";
-          inputNamaBahan.classList.add("form-control", "col");
-          inputNamaBahan.placeholder = "Nama Bahan";
-          inputNamaBahan.name = "nama_bahan[]";
+                // Membuat input untuk nama bahan
+                var inputNamaBahan = document.createElement("input");
+                inputNamaBahan.type = "text";
+                inputNamaBahan.classList.add("form-control", "col");
+                inputNamaBahan.placeholder = "Nama Bahan";
+                inputNamaBahan.name = "nama_bahan[]";
 
-          // Membuat input untuk ukuran
-          var inputUkuran = document.createElement("input");
-          inputUkuran.type = "text";
-          inputUkuran.classList.add("form-control", "col");
-          inputUkuran.placeholder = "Takaran";
-          inputUkuran.name = "takaran[]";
+                // Membuat input untuk ukuran
+                var inputUkuran = document.createElement("input");
+                inputUkuran.type = "number";
+                inputUkuran.classList.add("form-control", "col");
+                inputUkuran.placeholder = "Jumlah";
+                inputUkuran.name = "takaran[]";
 
-          // Membuat select untuk takaran
-          var selectTakaran = document.createElement("select");
-          selectTakaran.classList.add("form-control", "col");
-          selectTakaran.name = "satuan[]";
-          var optionPilih = document.createElement("option");
-          optionPilih.value = "";
-          optionPilih.textContent = "Pilih Takaran";
-          selectTakaran.appendChild(optionPilih);
-          var optionSdt = document.createElement("option");
-          optionSdt.value = "sdt";
-          optionSdt.textContent = "Sendok Teh (sdt)";
-          selectTakaran.appendChild(optionSdt);
-          var optionSdm = document.createElement("option");
-          optionSdm.value = "sdm";
-          optionSdm.textContent = "Sendok Makan (sdm)";
-          selectTakaran.appendChild(optionSdm);
-          var optionGram = document.createElement("option");
-          optionGram.value = "gram";
-          optionGram.textContent = "Gram (gr)";
-          selectTakaran.appendChild(optionGram);
-          var optionMl = document.createElement("option");
-          optionMl.value = "ml";
-          optionMl.textContent = "Mililiter (ml)";
-          selectTakaran.appendChild(optionMl);
+                // Membuat select untuk takaran
+                var selectTakaran = document.createElement("select");
+                selectTakaran.classList.add("form-control", "col");
+                selectTakaran.name = "satuan[]";
 
+                // Menambahkan opsi Pilih Takaran
+                var optionPilih = document.createElement("option");
+                optionPilih.value = "";
+                optionPilih.textContent = "-- Pilih Takaran --";
+                selectTakaran.appendChild(optionPilih);
 
-          // Membuat button untuk menghapus kolom bahan
-          var buttonHapus = document.createElement("button");
-          buttonHapus.type = "button";
-          buttonHapus.classList.add("btn", "btn-danger", "ml-2");
-          buttonHapus.textContent = "Hapus";
-          buttonHapus.onclick = function() {
-            divBahan.remove();
-          };
+                // Menambahkan opsi Gram
+                var optionGram = document.createElement("option");
+                optionGram.value = "gram";
+                optionGram.textContent = "Gram (gr)";
+                selectTakaran.appendChild(optionGram);
 
-          // Menambahkan input nama bahan, select takaran, input ukuran, dan button hapus ke dalam div kolom bahan
-          divBahan.appendChild(inputNamaBahan);
-          divBahan.appendChild(inputUkuran);
-          divBahan.appendChild(selectTakaran);
-          divBahan.appendChild(buttonHapus);
+                // Menambahkan opsi Mililiter
+                var optionMl = document.createElement("option");
+                optionMl.value = "ml";
+                optionMl.textContent = "Mililiter (ml)";
+                selectTakaran.appendChild(optionMl);
 
-          // Menambahkan div kolom bahan ke dalam div bahanInputs
-          var divBahanInputs = document.getElementById("bahanInputs");
-          divBahanInputs.appendChild(divBahan);
-        }
+                // Menambahkan opsi Sendeok Teh
+                var optionSdt = document.createElement("option");
+                optionSdt.value = "sdt";
+                optionSdt.textContent = "Sendeok Teh (sdt)";
+                selectTakaran.appendChild(optionSdt);
 
-        </script>
+                // Menambahkan opsi Sendok Makan
+                var optionSdm = document.createElement("option");
+                optionSdm.value = "sdm";
+                optionSdm.textContent = "Sendok Makan (sdm)";
+                selectTakaran.appendChild(optionSdm);
+
+                // Menambahkan opsi Potong
+                var optionPtg = document.createElement("option");
+                optionPtg.value = "ptg";
+                optionPtg.textContent = "Potong (ptg)";
+                selectTakaran.appendChild(optionPtg);
+
+                // Membuat button untuk menghapus kolom bahan
+                var buttonHapus = document.createElement("button");
+                buttonHapus.type = "button";
+                buttonHapus.classList.add("btn", "btn-danger", "ml-2");
+                buttonHapus.textContent = "Hapus";
+                buttonHapus.onclick = function() {
+                    divBahan.remove();
+                };
+
+                // Menambahkan input nama bahan, select takaran, input ukuran, dan button hapus ke dalam div kolom bahan
+                divBahan.appendChild(inputNamaBahan);
+                divBahan.appendChild(inputUkuran);
+                divBahan.appendChild(selectTakaran);
+                divBahan.appendChild(buttonHapus);
+
+                // Menambahkan div kolom bahan ke dalam div bahanInputs
+                var divBahanInputs = document.getElementById("bahanInputs");
+                divBahanInputs.appendChild(divBahan);
+            }
+            </script>
+
 
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
@@ -398,86 +395,6 @@
 }
 
 </script>
-{{-- di edit untuk gambar baru
-<script>
-  function previewEditImage(event) {
-      var input = event.target;
-      var reader = new FileReader();
-      reader.onload = function () {
-          var dataURL = reader.result;
-          var output = document.getElementById('edit_preview');
-          output.src = dataURL;
-      };
-      reader.readAsDataURL(input.files[0]);
-  }
-</script>
-<script>
-    function tambahKolomBahan() {
-        var divBahan = document.createElement("div");
-        divBahan.classList.add("form-row", "bahanInput");
-
-        var inputNamaBahan = document.createElement("input");
-        inputNamaBahan.type = "text";
-        inputNamaBahan.classList.add("form-control", "col");
-        inputNamaBahan.placeholder = "Nama Bahan";
-        inputNamaBahan.name = "nama_bahan[]";
-        inputNamaBahan.required = true;
-
-        var inputUkuran = document.createElement("input");
-        inputUkuran.type = "text";
-        inputUkuran.classList.add("form-control", "col");
-        inputUkuran.placeholder = "Takaran";
-        inputUkuran.name = "takaran[]";
-        inputUkuran.required = true;
-
-        var selectTakaran = document.createElement("select");
-        selectTakaran.classList.add("form-control", "col");
-        selectTakaran.name = "satuan[]";
-        selectTakaran.required = true;
-
-        var optionPilih = document.createElement("option");
-        optionPilih.value = "";
-        optionPilih.textContent = "Pilih Takaran";
-        optionPilih.disabled = true;
-        optionPilih.selected = true;
-        selectTakaran.appendChild(optionPilih);
-
-        var optionSdt = document.createElement("option");
-        optionSdt.value = "sdt";
-        optionSdt.textContent = "Sendok Teh (sdt)";
-        selectTakaran.appendChild(optionSdt);
-
-        var optionSdm = document.createElement("option");
-        optionSdm.value = "sdm";
-        optionSdm.textContent = "Sendok Makan (sdm)";
-        selectTakaran.appendChild(optionSdm);
-
-        var optionGram = document.createElement("option");
-        optionGram.value = "gram";
-        optionGram.textContent = "Gram (gr)";
-        selectTakaran.appendChild(optionGram);
-
-        var optionMl = document.createElement("option");
-        optionMl.value = "ml";
-        optionMl.textContent = "Mililiter (ml)";
-        selectTakaran.appendChild(optionMl);
-
-        var buttonHapus = document.createElement("button");
-        buttonHapus.type = "button";
-        buttonHapus.classList.add("btn", "btn-danger", "ml-2");
-        buttonHapus.textContent = "Hapus";
-        buttonHapus.onclick = function() {
-            divBahan.remove();
-        };
-
-        divBahan.appendChild(inputNamaBahan);
-        divBahan.appendChild(inputUkuran);
-        divBahan.appendChild(selectTakaran);
-        divBahan.appendChild(buttonHapus);
-
-        document.getElementById("bahanInputs").appendChild(divBahan);
-    }
-</script> --}}
 
 
 </body>

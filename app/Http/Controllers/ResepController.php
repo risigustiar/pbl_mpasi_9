@@ -75,10 +75,9 @@ class ResepController extends Controller
         // Validasi ny ini
         $validatedData = $request->validate([
             'nama_resep' => 'required',
-            'kategori' => 'required',
+            'porsi' => 'required',
             'usia' => 'required',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'karbohidrat' => 'required|numeric|min:0',
             'protein' => 'required|numeric|min:0',
             'lemak' => 'required|numeric|min:0',
             'energi' => 'required|numeric|min:0',
@@ -92,7 +91,7 @@ class ResepController extends Controller
             DB::transaction(function () use ($request, $id_resep) {
                 // untui mengUpdate resep ya
                 $nama_resep = $request->input('nama_resep');
-                $kategori = $request->input('kategori');
+                $porsi = $request->input('porsi');
                 $usia = $request->input('usia');
                 $cara_pembuatan = $request->input('cara_pembuatan');
                 $gambar_path = null;
@@ -107,8 +106,8 @@ class ResepController extends Controller
                 }
 
                 // ini untuk Update resep
-                $updateResepQuery = "UPDATE reseps SET nama_resep = ?, kategori = ?, usia = ?, cara_pembuatan = ?";
-                $queryParams = [$nama_resep, $kategori, $usia, $cara_pembuatan];
+                $updateResepQuery = "UPDATE reseps SET nama_resep = ?, porsi = ?, usia = ?, cara_pembuatan = ?";
+                $queryParams = [$nama_resep, $porsi, $usia, $cara_pembuatan];
 
                 if ($gambar_path) {
                     $updateResepQuery .= ", gambar = ?";
@@ -121,13 +120,13 @@ class ResepController extends Controller
                 DB::update($updateResepQuery, $queryParams);
 
                 // ini untuk Update kandungan gizi
-                $karbohidrat = $request->input('karbohidrat');
+
                 $protein = $request->input('protein');
                 $lemak = $request->input('lemak');
                 $energi = $request->input('energi');
 
-                $updateGiziQuery = "UPDATE gizis SET karbohidrat = ?, protein = ?, lemak = ?, energi = ? WHERE id_resep = ?";
-                DB::update($updateGiziQuery, [$karbohidrat, $protein, $lemak, $energi, $id_resep]);
+                $updateGiziQuery = "UPDATE gizis SET protein = ?, lemak = ?, energi = ? WHERE id_resep = ?";
+                DB::update($updateGiziQuery, [ $protein, $lemak, $energi, $id_resep]);
 
                 // Hapus semua bahan lama untuk resep yang sedang di-edit
                 $deleteBahanQuery = "DELETE FROM bahans WHERE id_resep = ?";
@@ -166,7 +165,7 @@ public function input_resep() {
 public function input(Request $request) {
     $request->validate([
         'nama_resep' => 'required',
-        'kategori' => 'required',
+        'porsi' => 'required',
         'usia' => 'required',
         'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // Tambahkan validasi untuk input lainnya sesuai kebutuhan
@@ -190,13 +189,12 @@ public function input(Request $request) {
         $data1->gambar = $lokasi_file.'/'.$nama_file;
         $data1->cara_pembuatan = $request->input('cara_pembuatan');
         $data1->usia = $request->input('usia');
-        $data1->kategori = $request->input('kategori');
+        $data1->porsi = $request->input('porsi');
         $data1->save();
 
         $id_resep_baru = $data1->id_resep;
 
         $data3->id_resep = $id_resep_baru;
-        $data3->karbohidrat = $request->input('karbohidrat');
         $data3->lemak = $request->input('lemak');
         $data3->protein = $request->input('protein');
         $data3->energi = $request->input('energi');
@@ -312,7 +310,7 @@ public function cari_resep(Request $request)
     $resep = Resep::where('id_resep', 'like', '%' . $keyword . '%')
     ->orWhere('nama_resep', 'like', '%' . $keyword . '%')
     ->orWhere('usia', 'like', '%' . $keyword . '%')
-    ->orWhere('kategori', 'like', '%' . $keyword . '%')
+    ->orWhere('porsi', 'like', '%' . $keyword . '%')
     ->orWhere('cara_pembuatan', 'like', '%' . $keyword . '%')
     ->get();
 

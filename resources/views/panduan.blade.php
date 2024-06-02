@@ -6,6 +6,10 @@
     <title>Panduan MPASI</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
+    <!-- footer -->
+  <link rel="stylesheet" href="{{ asset('css/styles_footer.css') }}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     <style>
         .speech-bubble-left {
             position: absolute;
@@ -18,7 +22,7 @@
             border-left: 0; /* Adjusted border */
             margin-left: -10px; /* Adjusted margin */
         }
-        
+
         .speech-bubble-right {
             position: absolute;
             bottom: -15px; /* Adjusted position */
@@ -104,5 +108,11 @@
             </div>
         </div>
     </div>
+    <!-- Footer-->
+    <x-footer />
+    <div class="container">
+    @yield('content')
+     </div>
+
 </body>
 </html>

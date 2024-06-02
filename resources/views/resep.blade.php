@@ -15,6 +15,7 @@
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="{{ asset('css/style_modal.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
 </head>
 
 <body id="page-top">
@@ -321,6 +322,8 @@
       </div>
     </div>
   </div>
+
+
 
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

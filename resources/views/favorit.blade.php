@@ -13,7 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <!-- footer -->
+  <link rel="stylesheet" href="{{ asset('css/styles_footer.css') }}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
 
     <!-- Css Styles -->
@@ -200,9 +203,12 @@
             </div>
         </div>
     </section>
-
-
     <!-- Product Section End -->
+    <!-- Footer-->
+    <x-footer />
+    <div class="container">
+    @yield('content')
+     </div>
 
 
 

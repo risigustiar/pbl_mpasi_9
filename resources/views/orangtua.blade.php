@@ -34,8 +34,10 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
-
-
+    <!-- footer -->
+    <link rel="stylesheet" href="{{ asset('css/styles_footer.css') }}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -104,12 +106,6 @@
                                 <img src="img/language.png" alt="">
                             </div>
                             <div class="header__top__right__auth">
-                                {{-- <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff;
-                                 border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onclick="confirmLogout()">
-                                    <class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
-                                        <i class="fa fa-sign-out-alt"></i> Logout
-                                    </class=>
-                                </button> --}}
                                 <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">
                                     <span class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
                                         <i class="fa fa-sign-out-alt"></i> Logout
@@ -267,6 +263,11 @@ if ($usia >= 6 && $usia <= 8) {
     </div>
     <!-- Banner End -->
 
+    <!-- Footer-->
+    <x-footer />
+    <div class="container">
+    @yield('content')
+     </div>
 
     <!-- Js Plugins -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

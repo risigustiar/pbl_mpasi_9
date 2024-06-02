@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Resep | BebyBit</title>
+    <!-- footer -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
         /* Letakkan gaya tambahan di sini */
@@ -236,19 +237,12 @@
     </div>
 </div>
 
-
-
-
-
 <div class="ingredient-card" style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     <h2 style="font-size: 24px; margin-bottom: 10px; color: #333;">Cara Pembuatan:</h2>
     <div style="background-color: #fff; border-radius: 10px; padding: 15px;">
         <p style="font-size: 16px; line-height: 1.6; color: #555; white-space: pre-wrap;">{{ $resep->cara_pembuatan }}</p>
     </div>
 </div>
-
-
-
 
 <script>
     document.getElementById("imageContainer").addEventListener("mouseover", function() {
@@ -291,6 +285,5 @@
         });
     });
 </script>
-
 </body>
 </html>

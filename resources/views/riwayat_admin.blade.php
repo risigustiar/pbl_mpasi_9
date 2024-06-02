@@ -17,6 +17,7 @@
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="{{ asset('css/ruang-admin.css') }}">
+
 </head>
 
 <body id="page-top">
@@ -186,6 +187,8 @@
       </div>
     </div>
   </div>
+
+
 
   <script src="{{ asset('vendor/jquery/jquery.min.js ') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>

@@ -17,6 +17,7 @@
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="{{ asset('css/ruang-admin.css') }}">
+
 </head>
 
 <body id="page-top">
@@ -80,7 +81,7 @@
           </button>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown no-arrow">
-             
+
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
 
@@ -134,7 +135,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to logout?</p>
+                  <p>Apakah Kamu Yakin Ingin Logout?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
@@ -149,6 +150,8 @@
       </div>
     </div>
   </div>
+
+
 
   <script src="{{ asset('vendor/jquery/jquery.min.js ') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>

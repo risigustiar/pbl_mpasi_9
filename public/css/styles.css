@@ -458,7 +458,7 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  
+
 }
 
 output {
@@ -10942,7 +10942,7 @@ hr.divider-light {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(244, 98, 58, 0.9);
+  background: rgba(159,217,102);
   transition: opacity 0.25s ease;
   text-align: center;
 }

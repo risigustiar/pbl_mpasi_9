@@ -8,14 +8,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo-web.png" rel="icon">
-  <title>BebyBit - Dashboard</title>
+  <title>BabyBites - Dashboard</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="{{ asset('css/style_modal.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
 </head>
 
 <body id="page-top">

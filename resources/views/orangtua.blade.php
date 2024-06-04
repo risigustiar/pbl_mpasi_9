@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home | BabyBit</title>
+    <title>Home | BabyBites</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -174,11 +174,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{ asset('img/hero/banner.jpg') }}">
+                    <div class="hero__item set-bg" data-setbg="{{ asset('img/hero/banner.jpeg') }}">
                         <div class="hero__text">
                             <span>HARAP LIHAT !!!</span>
                             <h2>PANDUAN <br />MPASI</h2>
-                            <p>Disarankan Untuk Melihat Panduan MPASI!</p>
                             <a href="{{ route('panduan')}}" class="primary-btn">LIHAT PANDUAN</a>
                         </div>
                     </div>
@@ -196,14 +195,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Rekomendai Resep MPASI Kemenkes</h2>
+                        <h2>Rekomendasi Resep MPASI Kemenkes</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">Semua</li>
                             <li data-filter=".oranges">6-8 Bulan</li>
                             <li data-filter=".fresh-meat">9-11 Bulan</li>
-                            <li data-filter=".vegetables">13-23 Bulan</li>
+                            <li data-filter=".vegetables">12-23 Bulan</li>
                         </ul>
                     </div>
                 </div>

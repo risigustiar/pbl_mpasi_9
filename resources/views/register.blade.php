@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Register | BebyBit</title>
+	<title>Registrasi | BabyBites</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -37,7 +37,7 @@
 				<form class="login100-form validate-form" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 					<span class="login100-form-title p-b-43">
-						Sign in
+						Registrasi
 					</span>
                     @if(session()->has('success'))
         <div class="alert alert-success">
@@ -50,7 +50,7 @@
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="name" id="name" value="{{ old('name') }}">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Name</span>
+						<span class="label-input100">Nama</span>
 					</div>
                     @error('email')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -76,12 +76,12 @@
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="confirm_password"  id="confirm_password" >
 						<span class="focus-input100"></span>
-						<span class="label-input100">confirm password</span>
+						<span class="label-input100">Konfirmasi Password</span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Sign in
+							Sign Up
 						</button>
 					</div>
 
@@ -94,7 +94,7 @@
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
+				<div class="login100-more" style="background-image: url('images/bg-01.jpeg');">
 				</div>
 			</div>
 		</div>

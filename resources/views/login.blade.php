@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login | BebyBit</title>
+	<title>Login | BabyBites</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -58,13 +58,7 @@
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
-					<div class="login10-form validate-form">
-						<span class="login100-form-title p-b-43">
-							<a href="daftar_pengguna.html" class="txt1">
-								Sign in
-							</a>
-						</span>
-					</div>
+
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
@@ -74,11 +68,7 @@
 							</label>
 						</div>
 
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
+
 					</div>
 
 
@@ -86,12 +76,12 @@
 						<button class="login100-form-btn">
 							Login
 						</button>
-                        <p>Belum punya akun?</p><a href="{{ route('register') }}">Register</a>
+                        <p>Belum punya akun?</p><a href="{{ route('register') }}">Registrasi</a>
 					</div>
 				</form>
 
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
+				<div class="login100-more" style="background-image: url('images/bg-01.jpeg');">
 				</div>
 			</div>
 		</div>

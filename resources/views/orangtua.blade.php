@@ -39,6 +39,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slicknav/1.0.10/slicknav.min.css" integrity="sha384-fZstJpvlsbX1v6r7HVzMhvfZOk0c7UN7++HiB6gIigb1zDHptNe7VzcdVS6Bd0Un" crossorigin="anonymous">
+
 
 </head>
 
@@ -48,95 +50,14 @@
         <div class="loader"></div>
     </div>
 
-    <!-- INI HALAMAN NAV BAR KALO DI KECILIN -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="{{ asset('img/logo.png') }}" alt=""></a>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="{{ asset('img/language.png') }}" alt="">
-                <div>Indonesia</div>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="{{ route('logout') }}" class="btn logout"><i class="fa fa-user"></i> Logout</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="#">Halaman Utama</a></li>
-                <li><a href="{{ route('resepuser') }}">Semua resep</a></li>
-                    <li><a href="{{ route('favorit')}}">Favorit</a></li>
-                    <li><a href="{{ route('riwayat')}}">Riwayat</a></li>
-                    <li><a href="{{ route('logout') }}">Logout</a></li>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> PBL@gmail.com</li>
-                <li>Project PBL APLIKASI MPASI</li>
-            </ul>
-        </div>
-    </div>
-    <!-- NAVBAR End -->
+    
 
-    <!-- Header YANG DI ATAS  -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 10px;">
-                                <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
-                                    <i class="fa fa-envelope" style="margin-right: 5px;"></i> PBL@Gmail.com
-                                </li>
-                                <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
-                                    Selamat Datang {{ Auth::user()->name }}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                            </div>
-                            <div class="header__top__right__auth">
-                                <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">
-                                    <span class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
-                                        <i class="fa fa-sign-out-alt"></i> Logout
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active" ><a href="{{ route('orangtua') }}">Halaman Utama</a></li>
-                            <li ><a href="{{ route('resepuser' ) }}">Semua resep</a></li>
-                            <li ><a href="{{ route('favorit')}}">Favorit</a></li>
-                            <li><a href="{{ route('riwayat')}}">Riwayat</a></li>
+    {{-- header --}}
+   <x-header />
 
-                        </ul>
-                    </nav>
-                </div>
-        </div>
-    </header>
+   <div class="container">
+       @yield('content')
+   </div>
     <!-- Header End -->
 
     <!-- Bagian Menu aplikasi -->

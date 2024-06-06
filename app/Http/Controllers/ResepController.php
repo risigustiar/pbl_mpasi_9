@@ -283,25 +283,6 @@ public function input(Request $request) {
 
 }
 
-public function back_resep($id_resep)
-    {
-        $riwayat = Riwayat::where('id_resep', $id_resep)
-                          ->where('id', Auth::id())
-                          ->first();
-
-        if (!$riwayat) {
-            // Tambahkan resep ke dalam riwayat jika belum ada
-            Riwayat::create([
-                'id' => Auth::id(),
-                'id_resep' => $id_resep
-            ]);
-        }
-
-        return redirect('/resepuser');
-    }
-
-
-
 //cari resep
 public function cari_resep(Request $request)
 {
@@ -326,7 +307,7 @@ public function cari_resep_admin(Request $request)
     $data = Resep::where('id_resep', 'like', '%' . $keyword . '%')
     ->orWhere('nama_resep', 'like', '%' . $keyword . '%')
     ->orWhere('usia', 'like', '%' . $keyword . '%')
-    ->orWhere('kategori', 'like', '%' . $keyword . '%')
+    ->orWhere('porsi', 'like', '%' . $keyword . '%')
     ->orWhere('cara_pembuatan', 'like', '%' . $keyword . '%')
     ->get();
 

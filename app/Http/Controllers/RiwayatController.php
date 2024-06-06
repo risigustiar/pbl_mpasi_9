@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Bahan;
 use App\Models\Gizi;
 use App\Models\Resep;
@@ -21,22 +19,25 @@ class RiwayatController extends Controller
         return view('riwayat', compact('riwayat_resep'));
     }
 
+    // tambah riwayat
     public function tambah_riwayat($id_resep)
-    {
-        $riwayat = Riwayat::where('id_resep', $id_resep)
-                          ->where('id', Auth::id())
-                          ->first();
-
-        if (!$riwayat) {
-            // Tambahkan resep ke dalam riwayat jika belum ada
-            Riwayat::create([
-                'id' => Auth::id(),
-                'id_resep' => $id_resep
-            ]);
-        }
-
-        return redirect('/riwayat');
+{
+    $userId = Auth::id();
+    if (!$userId) {
+        return redirect()->route('login');
     }
+    $riwayat = Riwayat::where('id_resep', $id_resep)
+                      ->where('id', $userId)
+                      ->first();
+    if (!$riwayat) {
+        Riwayat::create([
+            'id' => $userId,
+            'id_resep' => $id_resep
+        ]);
+    }
+    return redirect()->route('detail_resep', ['id_resep' => $id_resep]);
+}
+
 
 
     public function detail_riwayat($id_resep) {

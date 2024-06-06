@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Css Styles -->
     <link rel="icon" href="{{ asset("img/logo-web.png") }}">
@@ -195,9 +196,8 @@
                                 <img src="{{ asset($resep->resep->gambar) }}" alt="#" class="img-fluid" style="max-width: 100%;" width="100px">
                             </td>
                             <td>
-                         <a href="{{ route('detail_riwayat', $resep->id_resep) }}" class="btn btn-sm btn-primary">Detail</a> |
-                         <a href="{{ route('hapus_riwayat', $resep->id_resep) }}" class="btn btn-sm btn-danger">Hapus</a>
-                            </td>
+                         <a href="{{ route('detail_resep', $resep->id_resep) }}" class="btn btn-sm btn-primary">Detail</a> |
+                         <a href="{{ route('hapus_riwayat', $resep->id_resep) }}" class="btn btn-sm btn-danger delete-button">Hapus</a>                            </td>
                             </tr>
                         @endforeach
                       </tbody>
@@ -255,6 +255,33 @@
             });
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-button');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: 'Apakah Anda yakin?',
+                        text: "Anda tidak akan dapat mengembalikan ini!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = this.href;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 
 
 </body>

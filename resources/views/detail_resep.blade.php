@@ -141,15 +141,8 @@
 <body>
 <div class="container" style="background-color: #7fad39">
     <div class="recipe-header" style="text-align: center; margin-bottom: 30px;">
-        <form action="{{ route('back_resep', $resep->id_resep) }}" method="POST">
-            @csrf
             <div class="form-container">
-                <button style="background-color: #fcfbff; color: rgb(0, 0, 0);">
-                    <i class="fa-regular fa-circle-left large-icon"></i>
-                </button>
-                <span class="large-text">Back</span>
             </div>
-        </form>
     </div>
 
     <h1 class="recipe-title" style="
@@ -171,7 +164,7 @@
 </h1>
 <div style="display: flex; border-radius: 15px; overflow: hidden; ">
     <div id="imageContainer" style="flex: 1; display: flex; justify-content: center; align-items: center; position: relative;">
-        <img src="{{ asset($resep->gambar) }}" alt="Nama Resep" style="width: 110%; height: 400px; object-fit: cover; border-radius: 15px; margin-left: 10%; margin-right: auto; margin-bottom: 20px; ">
+        <img src="{{ asset($resep->gambar) }}" alt="Nama Resep" style="width: 110%; height: 400px; object-fit: cover; border-radius: 20px; margin-left: 10%; margin-right: auto; margin-bottom: 20px; ">
         <div id="recipeActions" class="recipe-actions" style="display: none; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.5); padding: 3%; border-radius: 10px; text-align: center; margin-bottom: 20px ; margin-left: 5%; margin-right: auto;">
             @if(auth()->check())
                 @php

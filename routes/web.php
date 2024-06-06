@@ -50,12 +50,10 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/riwayat_admin',[AdminController::class, 'riwayat_admin'])->name('riwayat_admin')->middleware('user:admin');
-
     Route::get('/register/orangtua',[AdminController::class,'orangtua'])->middleware('user:orangtua')->name('orangtua');
     Route::get('/resepuser',[AdminController::class, 'resepuser'])->name('resepuser')->middleware('user:orangtua');
     Route::get('/resepuser', [ResepController::class, 'semua_resep'])->name('resepuser')->middleware('user:orangtua');
     Route::get('/detail_resep/{id_resep}', [ResepController::class, 'detail_resep'])->name('detail_resep')->middleware('user:orangtua');
-    Route::post('/back_resep/{id_resep}', [ResepController::class, 'back_resep'])->name('back_resep')->middleware('user:orangtua');
     Route::get('/cari_resep', [ResepController::class, 'cari_resep'])->name('cari_resep')->middleware('user:orangtua');
     Route::get('/hapus_resep/{id_resep}',[ResepController::class,'hapus_resep'])->name('hapus_resep')->middleware('user:orangtua');
 

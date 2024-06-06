@@ -6,9 +6,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 10px;">
-                            <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
-                                <i class="fa fa-envelope" style="margin-right: 5px;"></i> PBL@Gmail.com
-                            </li>
+                            <img src="{{ asset('img/logo-web.png') }}" alt="logo" style="border-radius: 3px" width="8%">
                             <li class="font-weight-bold" style="font-size: 1.2em; display: flex; align-items: center;">
                                 Selamat Datang {{ Auth::user()->name }}
                             </li>
@@ -17,7 +15,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__right">
-                        <div class="header__top__right__language">
+                        <div>
                         </div>
                         <div class="header__top__right__auth">
                             <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">

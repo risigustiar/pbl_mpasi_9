@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Css Styles -->
-    <link rel="icon" href="{{ asset("img/logo-web.png") }}">
+    <link rel="icon" href="{{ asset("img/logo-web.PNG") }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} " type="text/css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} " type="text/css">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
@@ -50,7 +50,7 @@
         <div class="loader"></div>
     </div>
 
-    
+
 
     {{-- header --}}
    <x-header />
@@ -98,7 +98,7 @@
                     <div class="hero__item set-bg" data-setbg="{{ asset('img/hero/banner.jpeg') }}">
                         <div class="hero__text">
                             <span>HARAP LIHAT !!!</span>
-                            <h2>PANDUAN <br />MPASI</h2>
+                            <h2>Tumbuhkan Cinta Lewat MPASI : <br />Baca panduannya,Sehatkan Si Kecil</h2>
                             <a href="{{ route('panduan')}}" class="primary-btn">LIHAT PANDUAN</a>
                         </div>
                     </div>

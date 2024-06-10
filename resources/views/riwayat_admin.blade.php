@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo-web.png" rel="icon">
+  <link href="img/logo-web.PNG" rel="icon">
   <title>BabyBites - Dashboard</title>
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }} rel="stylesheet" type="text/css">
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css ') }}" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" >
         <div class="sidebar-brand-icon">
-          <img src="{{ asset('img/logo-web.png') }}">
+          <img src="{{ asset('img/logo-web.PNG') }}">
         </div>
         <div class="sidebar-brand-text mx-3">BebyBit</div>
       </a>

@@ -36,7 +36,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" form action="#" method="POST">
                     @csrf
-					<span class="login100-form-title p-b-43">
+					<span class="login100-form-title p-b-43" >
 						Login
 					</span>
                     @if($errors->any())
@@ -51,7 +51,7 @@
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" id="email" value="{{ old('email') }}">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
+						<span class="label-input100" >Email</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="password" id="password">

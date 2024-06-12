@@ -54,11 +54,11 @@
                                 <label for="usia1">6-8 Bulan</label>
                             </div>
                             <div class="usia-option">
-                                <input type="radio" id="usia2" name="usia" value="9-12" required>
+                                <input type="radio" id="usia2" name="usia" value="9-11" required>
                                 <label for="usia2">9-11 Bulan</label>
                             </div>
                             <div class="usia-option">
-                                <input type="radio" id="usia3" name="usia" value="13-18" required>
+                                <input type="radio" id="usia3" name="usia" value="12-23" required>
                                 <label for="usia3">12-23 Bulan</label>
                             </div>
                         </div>

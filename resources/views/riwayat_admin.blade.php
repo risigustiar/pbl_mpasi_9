@@ -8,15 +8,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo-web.PNG" rel="icon">
-  <title>BabyBites - Dashboard</title>
-  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }} rel="stylesheet" type="text/css">
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css ') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('css/ruang-admin.min.css ')}}" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <title>BabyBites - Dashboard</title><link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
-  <link rel="stylesheet" href="{{ asset('css/ruang-admin.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style_modal.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -166,13 +163,13 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Tunggu !</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to logout?</p>
+                  <p>apakah kamu yakin ingin logout?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>

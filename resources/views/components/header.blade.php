@@ -20,7 +20,7 @@
                         <div class="header__top__right__auth">
                             <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">
                                 <span class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
-                                    <i class="fa fa-sign-out-alt"></i> Logout
+                                    <i class="fa fa-sign-out-alt"></i> Keluar
                                 </span>
                             </button>
 

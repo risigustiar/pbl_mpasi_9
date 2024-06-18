@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo-web.PNG" rel="icon">
-  <title>BabyBites - Dashboard</title>
+  <title>BabyBites | Resep</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
@@ -86,19 +86,19 @@
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <label for="protein">Protein (gram):</label>
-                            <input type="number" class="form-control" id="protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" name="protein" required style="width: 30%;">
+                            <input type="number" class="form-control" id="protein" min="0" step="0.1" placeholder="Masukkan jumlah protein" name="protein" required style="width: 40%;">
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <label for="lemak">Lemak (gram):</label>
-                            <input type="number" class="form-control" id="lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" name="lemak" required style="width: 30%;">
+                            <input type="number" class="form-control" id="lemak" min="0" step="0.1" placeholder="Masukkan jumlah lemak" name="lemak" required style="width: 40%;">
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <label for="energi">Energi (kalori):</label>
-                            <input type="number" class="form-control" id="energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" name="energi" required style="width: 30%;">
+                            <input type="number" class="form-control" id="energi" min="0" step="0.1" placeholder="Masukkan jumlah energi" name="energi" required style="width: 40%;">
                         </div>
                     </div>
                     @error('gizi')
@@ -145,27 +145,29 @@
               <!-- Simple Tables -->
               <div class="card m-2">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <button type="button" class="btn btn-secondary mb-0" id="openModalBtn"><i class="fa-solid fa-plus"></i>  Resep</button>
+                    <button type="button" class="btn btn-secondary mb-0" id="openModalBtn">Resep</button>
                 </div>
                 @if(session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session()->get('success') }}
-                </div>
-                    @endif
-                    <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Nama Resep</th>
+                                <th>Usia</th>
+                                <th>Foto</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($data->isEmpty())
                                 <tr>
-                                    <th>Nama Resep</th>
-                                    <th>Usia</th>
-                                    <th>Foto</th>
-                                    <th>Action</th>
+                                    <td colspan="4" class="text-center">Resep tidak ada</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $i = 1; // Inisialisasi variabel penghitung
-                                @endphp
+                            @else
                                 @foreach ($data as $d)
                                     <tr>
                                         <td>{{ $d->nama_resep }}</td>
@@ -181,17 +183,15 @@
                                                 <i class="fa-solid fa-pen-to-square p-0"></i><br>
                                                 <span style="font-size: 12px;">Edit</span>
                                             </a>
-
                                         </td>
                                     </tr>
-                                    @php
-                                        $i++; // Increment variabel penghitung
-                                    @endphp
                                 @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                <div>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
 
 
         <!-- Modal Edit Resep -->
@@ -216,25 +216,25 @@
             function tambahKolomBahan() {
                 // Membuat elemen div untuk kolom bahan
                 var divBahan = document.createElement("div");
-                divBahan.classList.add("form-row", "bahanInput");
+                divBahan.classList.add("form-row", "bahanInput", "mb-3");
 
                 // Membuat input untuk nama bahan
                 var inputNamaBahan = document.createElement("input");
                 inputNamaBahan.type = "text";
-                inputNamaBahan.classList.add("form-control", "col");
+                inputNamaBahan.classList.add("form-control", "col", "mr-2");
                 inputNamaBahan.placeholder = "Nama Bahan";
                 inputNamaBahan.name = "nama_bahan[]";
 
                 // Membuat input untuk ukuran
                 var inputUkuran = document.createElement("input");
                 inputUkuran.type = "number";
-                inputUkuran.classList.add("form-control", "col");
+                inputUkuran.classList.add("form-control", "col", "mr-2");
                 inputUkuran.placeholder = "Jumlah";
                 inputUkuran.name = "takaran[]";
 
                 // Membuat select untuk takaran
                 var selectTakaran = document.createElement("select");
-                selectTakaran.classList.add("form-control", "col");
+                selectTakaran.classList.add("form-control", "col", "mr-2");
                 selectTakaran.name = "satuan[]";
 
                 // Menambahkan opsi Pilih Takaran
@@ -243,35 +243,28 @@
                 optionPilih.textContent = "-- Pilih Takaran --";
                 selectTakaran.appendChild(optionPilih);
 
-                // Menambahkan opsi Gram
-                var optionGram = document.createElement("option");
-                optionGram.value = "gram";
-                optionGram.textContent = "Gram (gr)";
-                selectTakaran.appendChild(optionGram);
+                // Array of options to be added
+                var options = [
+                    { value: "gram", text: "Gram (gr)" },
+                    { value: "ml", text: "Mililiter (ml)" },
+                    { value: "sdt", text: "Sendeok Teh (sdt)" },
+                    { value: "sdm", text: "Sendok Makan (sdm)" },
+                    { value: "ptg", text: "Potong (ptg)" },
+                    { value: "siung", text: "Siung" },
+                    { value: "cm", text: "Centimeter (cm)" },
+                    { value: "batang", text: "Batang" },
+                    { value: "buah", text: "Buah" },
+                    { value: "butir", text: "Butir" },
+                    { value: "lembar", text: "Lembar" }
+                ];
 
-                // Menambahkan opsi Mililiter
-                var optionMl = document.createElement("option");
-                optionMl.value = "ml";
-                optionMl.textContent = "Mililiter (ml)";
-                selectTakaran.appendChild(optionMl);
-
-                // Menambahkan opsi Sendeok Teh
-                var optionSdt = document.createElement("option");
-                optionSdt.value = "sdt";
-                optionSdt.textContent = "Sendeok Teh (sdt)";
-                selectTakaran.appendChild(optionSdt);
-
-                // Menambahkan opsi Sendok Makan
-                var optionSdm = document.createElement("option");
-                optionSdm.value = "sdm";
-                optionSdm.textContent = "Sendok Makan (sdm)";
-                selectTakaran.appendChild(optionSdm);
-
-                // Menambahkan opsi Potong
-                var optionPtg = document.createElement("option");
-                optionPtg.value = "ptg";
-                optionPtg.textContent = "Potong (ptg)";
-                selectTakaran.appendChild(optionPtg);
+                // Loop through options array and add each option to the select
+                options.forEach(function(option) {
+                    var opt = document.createElement("option");
+                    opt.value = option.value;
+                    opt.textContent = option.text;
+                    selectTakaran.appendChild(opt);
+                });
 
                 // Membuat button untuk menghapus kolom bahan
                 var buttonHapus = document.createElement("button");
@@ -295,23 +288,24 @@
             </script>
 
 
+
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Tunggu!</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to logout?</p>
+                  <p>Apakah Kamu Yakin Ingin Keluar?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{ route('logout')}}" class="btn btn-primary">Logout</a>
+                  <a href="{{ route('logout')}}" class="btn btn-primary">Keluar</a>
                 </div>
               </div>
             </div>

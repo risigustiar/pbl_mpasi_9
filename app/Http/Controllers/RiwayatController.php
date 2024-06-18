@@ -16,8 +16,11 @@ class RiwayatController extends Controller
     public function index()
     {
         $riwayat_resep = Riwayat::where('id', Auth::id())->with('resep')->get();
-        return view('riwayat', compact('riwayat_resep'));
+        $riwayat_kosong = $riwayat_resep->isEmpty();
+        return view('riwayat', compact('riwayat_resep', 'riwayat_kosong'));
     }
+
+
 
     // tambah riwayat
     public function tambah_riwayat($id_resep)

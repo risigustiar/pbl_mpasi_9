@@ -16,105 +16,19 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
-  <link rel="stylesheet" href="{{ asset('css/ruang-admin.css') }}">
-  <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <script src="https://kit.fontawesome.com/b04c2e8e37.js" crossorigin="anonymous"></script>
-  <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="{{ asset('css/style_modal.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body id="page-top">
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-        <div class="sidebar-brand-icon">
-          <img src="{{ asset('img/logo-web.png') }}">
-        </div>
-        <div class="sidebar-brand-text mx-3">BebyBit</div>
-      </a>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link" >
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-      <hr class="sidebar-divider">
-  <div class="sidebar-heading">
-    Menu Admin
-  </div>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
-       aria-expanded="true" aria-controls="collapseBootstrap" title="Halaman Kelola">
-      <i class="far fa-fw fa-window-maximize"></i>
-      <span>Halaman Kelola</span>
-    </a>
-        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kelola Resep</h6>
-            <a class="collapse-item" href="{{ route('resep') }}">Resep MPASI</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Cek Aktivitas Pengguna</span>
-        </a>
-        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="{{ route('riwayat_admin')}}">Riwayat</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
+    {{-- header --}}
+    <x-header_admin />
 
-      <hr class="sidebar-divider">
-      <div class="version" id="version-ruangadmin"></div>
-    </ul>
-    <!-- Sidebar -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-    <!-- TopBar -->
-        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow">
-
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-              </div>
-            </li>
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="{{ asset('img/profil/profil.webp ') }}"" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-    <!-- Topbar -->
+    <div class="container">
+        @yield('content')
+    </div>
+     <!-- Header End -->
 
     {{-- isi edit --}}
     <div class="card m-5">
@@ -218,9 +132,16 @@
                                 <option value="" disabled>Pilih Takaran</option>
                                 <option value="gram" {{ $item->satuan == 'gram' ? 'selected' : '' }}>Gram (gr)</option>
                                 <option value="ml" {{ $item->satuan == 'ml' ? 'selected' : '' }}>Mililiter (ml)</option>
-                                <option value="stdm" {{ $item->satuan == 'stdm' ? 'selected' : '' }}>Sendok Teh (std)</option>
+                                <option value="sdt" {{ $item->satuan == 'sdt' ? 'selected' : '' }}>Sendok Teh (sdt)</option>
                                 <option value="sdm" {{ $item->satuan == 'sdm' ? 'selected' : '' }}>Sendok Makan (sdm)</option>
                                 <option value="ptg" {{ $item->satuan == 'ptg' ? 'selected' : '' }}>Potong (ptg)</option>
+                                <option value="siung" {{ $item->satuan == 'siung' ? 'selected' : '' }}>Siung</option>
+                                <option value="cm" {{ $item->satuan == 'cm' ? 'selected' : '' }}>Centimeter (cm)</option>
+                                <option value="batang" {{ $item->satuan == 'batang' ? 'selected' : '' }}>Batang</option>
+                                <option value="buah" {{ $item->satuan == 'buah' ? 'selected' : '' }}>Buah</option>
+                                <option value="butir" {{ $item->satuan == 'butir' ? 'selected' : '' }}>Butir</option>
+                                <option value="lembar" {{ $item->satuan == 'lembar' ? 'selected' : '' }}>Lembar</option>
+
                             </select>
                             <button type="button" class="btn btn-danger ml-2" onclick="this.parentElement.remove();">Hapus</button>
                         </div>
@@ -244,17 +165,17 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Tunggu !</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to logout?</p>
+                  <p>Are you sure you want to keluar?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{ route('logout')}}" class="btn btn-primary">Logout</a>
+                  <a href="{{ route('logout')}}" class="btn btn-primary">Keluar</a>
                 </div>
               </div>
             </div>
@@ -342,30 +263,28 @@
         optionPilih.selected = true;
         selectTakaran.appendChild(optionPilih);
 
-        var optionGram = document.createElement("option");
-        optionGram.value = "gram";
-        optionGram.textContent = "Gram (gr)";
-        selectTakaran.appendChild(optionGram);
+        // Array of options to be added
+        var options = [
+            { value: "gram", text: "Gram (gr)" },
+            { value: "ml", text: "Mililiter (ml)" },
+            { value: "sdt", text: "Sendok Teh (sdt)" },
+            { value: "sdm", text: "Sendok Makan (sdm)" },
+            { value: "ptg", text: "Potong (ptg)" },
+            { value: "siung", text: "Siung" },
+            { value: "cm", text: "Centimeter (cm)" },
+            { value: "batang", text: "Batang" },
+            { value: "buah", text: "Buah" },
+            { value: "butir", text: "Butir" },
+            { value: "lembar", text: "Lembar" }
+        ];
 
-        var optionMl = document.createElement("option");
-        optionMl.value = "ml";
-        optionMl.textContent = "mililiter (ml)";
-        selectTakaran.appendChild(optionMl);
-
-        var optionSdt = document.createElement("option");
-        optionSdt.value = "sdt";
-        optionSdt.textContent = "Sendok Teh (sdt)";
-        selectTakaran.appendChild(optionSdt);
-
-        var optionSdm = document.createElement("option");
-        optionSdm.value = "sdm";
-        optionSdm.textContent = "Sendok Makan (sdm)";
-        selectTakaran.appendChild(optionSdm);
-
-        var optionPtg = document.createElement("option");
-        optionPtg.value = "ptg";
-        optionPtg.textContent = "Potong (ptg)";
-        selectTakaran.appendChild(optionPtg);
+        // Loop through options array and add each option to the select
+        options.forEach(function(option) {
+            var opt = document.createElement("option");
+            opt.value = option.value;
+            opt.textContent = option.text;
+            selectTakaran.appendChild(opt);
+        });
 
         var buttonHapus = document.createElement("button");
         buttonHapus.type = "button";
@@ -382,7 +301,8 @@
 
         document.getElementById("bahanInputs").appendChild(divBahan);
     }
-</script>
+    </script>
+
 
 </body>
 </html>

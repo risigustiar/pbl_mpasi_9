@@ -3,16 +3,18 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" >
         <div class="sidebar-brand-icon">
-          <img src="{{ asset('img/logo-web.png') }}">
+            <img src="{{ asset('img/logo-web.png') }}" style="border-radius: 5px;">
         </div>
         <div class="sidebar-brand-text mx-3">BabyBites</div>
       </a>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link" >
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
+<li class="nav-item active">
+    <a class="nav-link" href="/register/admin">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+    </a>
+</li>
+
       <hr class="sidebar-divider">
   <div class="sidebar-heading">
     Menu Admin
@@ -93,7 +95,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Keluar
                 </a>
               </div>
             </li>

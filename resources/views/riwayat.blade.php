@@ -39,54 +39,7 @@
         <div class="loader"></div>
     </div>
 
-    <!-- juka di kecilin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>Indonesia</div>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="{{ route('logout')}}"><i class="fa fa-user"></i> Logout</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
 
-                <li class="active"><a href="{{ route('resep') }}">Halaman Utama</a></li>
-                <li><a href="{{ route('resepuser') }}">Semua resep</a></li>
-                <li><a href="#">Kategori Usia</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">6-8 Bulan</a></li>
-                        <li><a href="./shoping-cart.html">9-12 Bulan</a></li>
-                        <li><a href="./checkout.html">13-18 Bulan</a></li>
-                        <li><a href="./blog-details.html">19-24 Bulan</a></li>
-                    </ul>
-                    <li><a href="./shop-grid.html">Favorit</a></li>
-                    <li><a href="./shop-grid.html">Riwayat</a></li>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> PBL@gmail.com</li>
-                <li>Project PBL APLIKASI MPASI</li>
-            </ul>
-        </div>
-    </div>
-    <!-- NAVBAR End -->
 
    {{-- header --}}
    <x-header />
@@ -170,8 +123,8 @@
 
                 <!-- Simple Tables -->
                 <div class="card">
-                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-dark">Riwayat Resep</h6>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-dark">Riwayat Resep</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
@@ -184,26 +137,33 @@
                                     <th><strong><span style="font-size: 1.2em;">foto</span></strong></th>
                                     <th><strong><span style="font-size: 1.2em;">Kelola</span></strong></th>
                                 </tr>
-                      </thead>
-                      <tbody>
-                        @foreach($riwayat_resep as $resep)
-                            <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td><strong>{{ $resep->resep->nama_resep }}</strong></td>
-                            <td><strong>{{ $resep->resep->usia }}</strong></td>
-                            <td><strong>{{ $resep->tanggal }}</strong></td>
-                            <td style="max-width: 120px;">
-                                <img src="{{ asset($resep->resep->gambar) }}" alt="#" class="img-fluid" style="max-width: 100%;" width="100px">
-                            </td>
-                            <td>
-                         <a href="{{ route('detail_resep', $resep->id_resep) }}" class="btn btn-sm btn-primary">Detail</a> |
-                         <a href="{{ route('hapus_riwayat', $resep->id_resep) }}" class="btn btn-sm btn-danger delete-button">Hapus</a>                            </td>
-                            </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="card-footer"></div>
+                            </thead>
+                            <tbody>
+                                @if($riwayat_resep->isEmpty())
+                                    <tr>
+                                        <td colspan="6" class="text-center">Tidak ada riwayat resep</td>
+                                    </tr>
+                                @else
+                                    @foreach($riwayat_resep as $resep)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><strong>{{ $resep->resep->nama_resep }}</strong></td>
+                                            <td><strong>{{ $resep->resep->usia }}</strong></td>
+                                            <td><strong>{{ $resep->tanggal }}</strong></td>
+                                            <td style="max-width: 120px;">
+                                                <img src="{{ asset($resep->resep->gambar) }}" alt="#" class="img-fluid" style="max-width: 100%;" width="100px">
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('detail_resep', $resep->id_resep) }}" class="btn btn-sm btn-primary">Detail</a> |
+                                                <a href="{{ route('hapus_riwayat', $resep->id_resep) }}" class="btn btn-sm btn-danger delete-button">Hapus</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer"></div>
                 </div>
               </div>
             </div>
@@ -231,17 +191,17 @@
     <script>
         function confirmLogout() {
             Swal.fire({
-                title: 'Apakah anda yakin ingin logout?',
+                title: 'Apakah anda yakin ingin keluar?',
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Logout',
+                confirmButtonText: 'Ya, keluar',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: 'Logout Berhasil!',
+                        title: ' Berhasil keluar!',
                         text: 'Anda akan logout dari akun Anda.',
                         icon: 'success',
                         timer: 2000,

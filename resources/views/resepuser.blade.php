@@ -37,54 +37,6 @@
         <div class="loader"></div>
     </div>
 
-    <!-- jika di kecilin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <div>Indonesia</div>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="{{ route('logout')}}"><i class="fa fa-user"></i> Logout</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-
-                <li class="active"><a href="{{ route('resep') }}">Halaman Utama</a></li>
-                <li><a href="{{ route('resepuser') }}">Semua resep</a></li>
-                <li><a href="#">Kategori Usia</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">6-8 Bulan</a></li>
-                        <li><a href="./shoping-cart.html">9-12 Bulan</a></li>
-                        <li><a href="./checkout.html">13-18 Bulan</a></li>
-                        <li><a href="./blog-details.html">19-24 Bulan</a></li>
-                    </ul>
-                    <li><a href="{{ route('favorit')}}">Favorit</a></li>
-                    <li><a href="{{ route('riwayat')}}">Riwayat</a></li>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> PBL@gmail.com</li>
-                <li>Project PBL APLIKASI MPASI</li>
-            </ul>
-        </div>
-    </div>
-    <!-- NAVBAR End -->
-
     {{-- header --}}
     <x-header />
 
@@ -205,18 +157,18 @@
     <script>
         function confirmLogout() {
             Swal.fire({
-                title: 'Apakah anda yakin ingin logout?',
+                title: 'Apakah anda yakin ingin keluar?',
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Logout',
+                confirmButtonText: 'Ya, keluar',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: 'Logout Berhasil!',
-                        text: 'Anda akan logout dari akun Anda.',
+                        title: 'berhasil keluar!',
+                        text: 'Anda akan keluar dari akun Anda.',
                         icon: 'success',
                         timer: 2000,
                         timerProgressBar: true,

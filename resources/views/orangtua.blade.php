@@ -11,35 +11,27 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://kit.fontawesome.com/2b50aa2221.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <!-- Css Styles -->
-    <link rel="icon" href="{{ asset("img/logo-web.PNG") }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} " type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} " type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+<!-- Favicon -->
+<link rel="icon" href="{{ asset('img/logo-web.PNG') }}">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
-    <!-- footer -->
-    <link rel="stylesheet" href="{{ asset('css/styles_footer.css') }}">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/styles_footer.css') }}" type="text/css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slicknav/1.0.10/slicknav.min.css" integrity="sha384-fZstJpvlsbX1v6r7HVzMhvfZOk0c7UN7++HiB6gIigb1zDHptNe7VzcdVS6Bd0Un" crossorigin="anonymous">
+<!-- External CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slicknav/1.0.10/slicknav.min.css" integrity="sha384-fZstJpvlsbX1v6r7HVzMhvfZOk0c7UN7++HiB6gIigb1zDHptNe7VzcdVS6Bd0Un" crossorigin="anonymous">
 
 
 </head>
@@ -129,59 +121,46 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                @foreach($resep as $rsp)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix
-                        <?php
-                           $usia = (int)$rsp->usia;
-
-// Tentukan kelas filter berdasarkan usia
-if ($usia >= 6 && $usia <= 8) {
-    echo 'oranges';
-} elseif ($usia >= 9 && $usia <= 11) {
-    echo 'fresh-meat';
-} elseif ($usia >= 12 && $usia <= 23) {
-    echo 'vegetables';
-} else {
-    echo 'fastfood';
-}
-                        ?>">
-                        <a href="{{ route('detail_resep', $rsp->id_resep) }}">
-                        <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="{{ asset($rsp->gambar) }}">
-                            </div>
-                            <div class="featured__item__text">
-                                <h6><a href="{{ route('detail_resep', $rsp->id_resep) }}">{{ $rsp->nama_resep }}</a></h6>
-                                <h5>{{ $rsp->usia }} bulan</h5>
-                            </div>
-                        </div>
+                @if($resep->isEmpty())
+                    <div class="col-lg-12" style="text-align: center;">
+                        <p>Tidak ada resep MPASI tersedia saat ini.</p>
                     </div>
-                </a>
-                @endforeach
+                @else
+                    @foreach($resep as $rsp)
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix
+                            <?php
+                               $usia = (int)$rsp->usia;
+
+                               // Tentukan kelas filter berdasarkan usia
+                               if ($usia >= 6 && $usia <= 8) {
+                                   echo 'oranges';
+                               } elseif ($usia >= 9 && $usia <= 11) {
+                                   echo 'fresh-meat';
+                               } elseif ($usia >= 12 && $usia <= 23) {
+                                   echo 'vegetables';
+                               } else {
+                                   echo 'fastfood';
+                               }
+                            ?>">
+                            <a href="{{ route('detail_resep', $rsp->id_resep) }}">
+                                <div class="featured__item">
+                                    <div class="featured__item__pic set-bg" data-setbg="{{ asset($rsp->gambar) }}">
+                                    </div>
+                                    <div class="featured__item__text">
+                                        <h6><a href="{{ route('detail_resep', $rsp->id_resep) }}">{{ $rsp->nama_resep }}</a></h6>
+                                        <h5>{{ $rsp->usia }} bulan</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
 
-    </section>
     <!-- Featured Section End -->
 
-    <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{ asset('img/banner/banner-1.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{ asset('img/banner/banner-2.jpg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
 
     <!-- Footer-->
     <x-footer />
@@ -202,18 +181,18 @@ if ($usia >= 6 && $usia <= 8) {
     <script>
         function confirmLogout() {
             Swal.fire({
-                title: 'Apakah anda yakin ingin logout?',
+                title: 'Apakah anda yakin ingin keluar?',
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Logout',
+                confirmButtonText: 'Ya, keluar',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: 'Logout Berhasil!',
-                        text: 'Anda akan logout dari akun Anda.',
+                        title: ' Berhasil keluar!',
+                        text: 'Anda akan keluar dari akun Anda.',
                         icon: 'success',
                         timer: 2000,
                         timerProgressBar: true,

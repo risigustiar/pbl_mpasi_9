@@ -21,7 +21,7 @@ class AdminController extends Controller
 
     function orangtua()
     {
-        $resep = Resep::paginate(8);
+        $resep = Resep::all ();
 
         return view('orangtua', compact('resep'));
     }

@@ -99,7 +99,9 @@ class ResepController extends Controller
                 // ini untuk upload gambar
                 if ($request->hasFile('gambar')) {
                     $gambar = $request->file('gambar');
-                    $nama_file = time() . "_" . $gambar->getClientOriginalName();
+                    $nama_file_asli = pathinfo($gambar->getClientOriginalName(), PATHINFO_FILENAME);
+                    $ext_file = $gambar->getClientOriginalExtension();
+                    $nama_file = $nama_file_asli . "_" . time() . "." . $ext_file;
                     $lokasi_file = 'img/resep';
                     $gambar->move($lokasi_file, $nama_file);
                     $gambar_path = $lokasi_file . '/' . $nama_file;
@@ -147,14 +149,6 @@ class ResepController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
-
-
-
-
-
-
-
-
 
 //input
 public function input_resep() {

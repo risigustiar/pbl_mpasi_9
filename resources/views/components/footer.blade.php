@@ -32,7 +32,7 @@
     </div>
     <div class="footer-right">
         <p class="footer-company-about">
-            <span>Tentang Apliasi BabyBites</span>
+            <span>Tentang Aplikasi BabyBites</span>
             Temukan rekomendasi resep MPASI terbaik untuk si kecil.
              Dirancang khusus untuk membantu orangtua menyediakan makanan bergizi,
               serta memberikan informasi lengkap tentang nilai gizinya.

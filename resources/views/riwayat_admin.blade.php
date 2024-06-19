@@ -49,11 +49,11 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th><strong><span style="font-size: 1.2em;">N0</span></strong></th>
+                                        <th><strong><span style="font-size: 1.2em;">NO</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Nama Resep</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Usia</span></strong></th>
                                         <th><strong><span style="font-size: 1.2em;">Tanggal</span></strong></th>
-                                        <th><strong><span style="font-size: 1.2em;">foto</span></strong></th>
+                                        <th><strong><span style="font-size: 1.2em;">Foto</span></strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,6 +117,33 @@
   <script src="{{ asset('js/ruang-admin.min.js') }}"></script>
   <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+  <script>
+     function confirmLogout() {
+            Swal.fire({
+                title: 'Apakah anda yakin ingin keluar?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, keluar',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'berhasil keluar!',
+                        text: 'Anda akan keluar dari akun Anda.',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        window.location.href = "{{ route('logout') }}";
+                    }, 2000);
+                }
+            });
+        }
+  </script>
 </body>
 
 </html>

@@ -73,47 +73,72 @@
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <!-- TopBar -->
-        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+        <nav
+        class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+        <button id="sidebarToggleTop"
+            class="btn btn-link rounded-circle mr-3" style="color: #ffffff">
             <i class="fa fa-bars"></i>
-          </button>
-          <ul class="navbar-nav ml-auto">
+        </button>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown no-arrow">
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                   aria-labelledby="searchDropdown">
-              </div>
+                <a class="nav-link dropdown-toggle" href="#"
+                    id="searchDropdown" role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <div
+                    class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                    aria-labelledby="searchDropdown">
+                    <form class="navbar-search"
+                        action="{{ route('cari_resep_admin') }}"
+                        method="GET">
+                        <div class="input-group">
+                            <input type="text"
+                                class="form-control bg-light border-1 small"
+                                placeholder="ketik kata kunci pencarian..."
+                                aria-label="Search"
+                                aria-describedby="basic-addon2"
+                                style="border-color: #ffffff;"
+                                name="cari">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary"
+                                    type="submit">
+                                    <!-- Ubah type button ke submit -->
+                                    <i
+                                        class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </li>
+
             <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="{{ asset('img/profil/profil.webp') }}" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Keluar
-                </a>
-              </div>
+            <li class="nav-item no-arrow">
+                <div>
+                    <button class="custom-btn btn-1"
+    style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block; margin-top: 10%;"
+    onmouseover="this.style.backgroundColor='#ff0000';"
+    onmouseout="this.style.backgroundColor='#010101';"
+    onclick="confirmLogout()">
+    <span class="font-weight-bold"
+        style="font-size: 0.8em; color: inherit; text-decoration: none;">
+        <i class="fa fa-sign-out-alt"></i>
+        Logout
+    </span>
+</button>
+                </div>
             </li>
-          </ul>
-        </nav>
+        </ul>
+    </nav>
         <!-- Topbar -->
 
         <!-- isi dasbord -->
         <div class="container">
-          <h1 class="main-heading text-center animate__animated animate__fadeInDown"><i class="fas fa-home"></i> Selamat Datang Admin</h1>
           <div class="subtext text-center">
-            <p class="animate__animated animate__fadeInUp animate__delay-1s"><i class="fas fa-smile"></i> Selamat datang di dashboard admin kami.</p>
-            <p class="animate__animated animate__fadeInUp animate__delay-2s"><i class="fas fa-utensils"></i> Di sini, Anda memiliki akses penuh untuk mengelola resep MPASI seperti mengedit, menambahkan, dan menghapus resep.</p>
-            <p class="animate__animated animate__fadeInUp animate__delay-3s"><i class="fas fa-history"></i> Anda juga dapat melihat aktivitas riwayat resep pengguna.</p>
-            <p class="animate__animated animate__fadeInUp animate__delay-4s"><i class="fas fa-thumbs-up"></i> Terima Kasih.</p>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s"><i class="fas fa-smile"></i> Selamat datang di Halaman admin </p>
+            <p class="animate__animated animate__fadeInUp animate__delay-2s"><i class="fas fa-utensils"></i>  Anda memiliki akses penuh untuk mengelola resep MPASI seperti menambahkan, mengedit, menghapus resep, dan melihat aktivitas riwayat resep pengguna.</p>
           </div>
         </div>
         <!-- isi dasbord end -->
@@ -151,6 +176,34 @@
   <script src="{{ asset('js/ruang-admin.min.js') }}"></script>
   <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+     function confirmLogout() {
+        Swal.fire({
+            title: 'Apakah anda yakin ingin keluar?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, keluar',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Berhasil keluar!',
+                    text: 'Anda akan keluar dari akun Anda.',
+                    icon: 'success',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                });
+                setTimeout(function() {
+                    window.location.href = "{{ route('logout') }}";
+                }, 2000);
+            }
+        });
+    }
+  </script>
 </body>
 
 </html>

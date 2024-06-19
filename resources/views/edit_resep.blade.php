@@ -153,7 +153,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-danger">Batal</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
             </form>
         </div>
     </div>
@@ -171,11 +171,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure you want to keluar?</p>
+                  <p>Apakah anda yakin ingin logout?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{ route('logout')}}" class="btn btn-primary">Keluar</a>
+                  <a href="{{ route('logout')}}" class="btn btn-primary">Logout</a>
                 </div>
               </div>
             </div>
@@ -245,9 +245,9 @@
         inputNamaBahan.required = true;
 
         var inputUkuran = document.createElement("input");
-        inputUkuran.type = "number";
+        inputUkuran.type = "text";
         inputUkuran.classList.add("form-control", "col", "mr-2"); // menambahkan kelas mr-2 untuk margin kanan
-        inputUkuran.placeholder = "Jumlah";
+        inputUkuran.placeholder = "Jumlah Takaran";
         inputUkuran.name = "takaran[]";
         inputUkuran.required = true;
 
@@ -258,7 +258,7 @@
 
         var optionPilih = document.createElement("option");
         optionPilih.value = "";
-        optionPilih.textContent = "Pilih Takaran";
+        optionPilih.textContent = "Pilih Satuan";
         optionPilih.disabled = true;
         optionPilih.selected = true;
         selectTakaran.appendChild(optionPilih);
@@ -301,6 +301,32 @@
 
         document.getElementById("bahanInputs").appendChild(divBahan);
     }
+
+    function confirmLogout() {
+            Swal.fire({
+                title: 'Apakah anda yakin ingin keluar?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, keluar',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'berhasil keluar!',
+                        text: 'Anda akan keluar dari akun Anda.',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        window.location.href = "{{ route('logout') }}";
+                    }, 2000);
+                }
+            });
+        }
     </script>
 
 

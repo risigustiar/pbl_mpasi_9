@@ -61,7 +61,7 @@
                         </div>
                         <ul>
                             <li><a href="{{ route('orangtua') }}">Halaman Utama</a></li>
-                            <li><a href="{{ route('resepuser' )}}"></a>Semua Resep</li>
+                            <li><a href="{{ route('resepuser' )}}">Semua Resep</a></li>
                             <li><a href="{{ route('riwayat')}}">Riwayat</a></li>
                             <li ><a href="{{ route('favorit')}}">Favorit</a></li>
 

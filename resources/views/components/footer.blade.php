@@ -29,10 +29,6 @@
             <i class="fa fa-phone"></i>
             <p>+62 858 3700 9851</p>
         </div>
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="risigustiar1234@gmail.com">PBLMPASI@gmail.com</a></p>
-        </div>
     </div>
     <div class="footer-right">
         <p class="footer-company-about">
@@ -41,6 +37,6 @@
              Dirancang khusus untuk membantu orangtua menyediakan makanan bergizi,
               serta memberikan informasi lengkap tentang nilai gizinya.
         </p>
-        
+
     </div>
 </footer>

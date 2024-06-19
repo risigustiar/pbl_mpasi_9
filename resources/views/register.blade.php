@@ -99,7 +99,7 @@
                     <div class="login10-form validate-form">
                         <span class="login100-form-title p-b-43">
                             <a href="{{ route('login') }}" class="blogin100-form-btn">
-                                Klik Untuk Mauk
+                                Klik Untuk Login
                             </a>
                         </span>
                     </div>

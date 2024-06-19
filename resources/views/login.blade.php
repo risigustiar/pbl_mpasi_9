@@ -38,7 +38,7 @@
                 <form class="login100-form validate-form" action="{{ route('login') }}" method="POST">
                     @csrf
                     <span class="login100-form-title p-b-43">
-                        Masuk
+                        Login
                     </span>
                     @if($errors->any())
                     <script>
@@ -67,7 +67,7 @@
 
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
-                            Masuk
+                            Login
                         </button>
                         <p>Belum punya akun?</p><a href="{{ route('register') }}">Registrasi</a>
                     </div>

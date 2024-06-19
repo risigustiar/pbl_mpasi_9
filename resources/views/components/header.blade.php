@@ -20,7 +20,7 @@
                         <div class="header__top__right__auth">
                             <button class="custom-btn btn-1" style="border-radius: 5px; background-color: #010101; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; display: inline-block;" onmouseover="this.style.backgroundColor='#ff0000';" onmouseout="this.style.backgroundColor='#010101';" onclick="confirmLogout()">
                                 <span class="font-weight-bold" style="font-size: 0.8em; color: inherit; text-decoration: none;">
-                                    <i class="fa fa-sign-out-alt"></i> Keluar
+                                    <i class="fa fa-sign-out-alt"></i> Logout
                                 </span>
                             </button>
 
@@ -37,19 +37,7 @@
                     <a href="{{ route('orangtua')}}"><img src="#" alt=""></a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="{{ request()->route()->getName() == 'orangtua' ? 'active' : '' }}"><a href="{{ route('orangtua') }}">Halaman Utama</a></li>
-                        <li class="{{ request()->route()->getName() == 'resepuser' ? 'active' : '' }}"><a href="{{ route('resepuser' ) }}">Semua resep</a></li>
-                        <li class="{{ request()->route()->getName() == 'favorit' ? 'active' : '' }}"><a href="{{ route('favorit')}}">Favorit</a></li>
-                        <li class="{{ request()->route()->getName() == 'riwayat' ? 'active' : '' }}"><a href="{{ route('riwayat')}}">Riwayat</a></li>
-                    </ul>
-                </nav>
-            </div>
     </div>
 </header>
-
-
 
 <!-- Header End -->

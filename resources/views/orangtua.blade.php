@@ -89,8 +89,7 @@
                     </div>
                     <div class="hero__item set-bg" data-setbg="{{ asset('img/hero/banner.jpeg') }}">
                         <div class="hero__text">
-                            <span>HARAP LIHAT !!!</span>
-                            <h2>Tumbuhkan Cinta Lewat MPASI : <br />Baca panduannya,Sehatkan Si Kecil</h2>
+                            <h2>Tumbuhkan Cinta Lewat MPASI  <br />Baca panduannya, Sehatkan Si Kecil</h2>
                             <a href="{{ route('panduan')}}" class="primary-btn">LIHAT PANDUAN</a>
                         </div>
                     </div>
@@ -108,7 +107,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Rekomendasi Resep MPASI Kemenkes</h2>
+                        <h2>Rekomendasi Resep MPASI</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
@@ -123,7 +122,7 @@
             <div class="row featured__filter">
                 @if($resep->isEmpty())
                     <div class="col-lg-12" style="text-align: center;">
-                        <p>Tidak ada resep MPASI tersedia saat ini.</p>
+                        <p>Tidak ada resep MPASI tersedia saat ini</p>
                     </div>
                 @else
                     @foreach($resep as $rsp)

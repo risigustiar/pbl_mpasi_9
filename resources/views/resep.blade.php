@@ -135,7 +135,7 @@
                     @enderror
 
                   <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Batal</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                 </form>
               </div>
             </div>
@@ -145,8 +145,11 @@
               <!-- Simple Tables -->
               <div class="card m-2">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <button type="button" class="btn btn-secondary mb-0" id="openModalBtn">Resep</button>
+                    <button type="button" class="btn btn-secondary mb-0" id="openModalBtn">
+                        <i class="fa fa-plus"></i> Resep
+                    </button>
                 </div>
+
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
@@ -159,7 +162,7 @@
                                 <th>Nama Resep</th>
                                 <th>Usia</th>
                                 <th>Foto</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -227,9 +230,9 @@
 
                 // Membuat input untuk ukuran
                 var inputUkuran = document.createElement("input");
-                inputUkuran.type = "number";
+                inputUkuran.type = "text";
                 inputUkuran.classList.add("form-control", "col", "mr-2");
-                inputUkuran.placeholder = "Jumlah";
+                inputUkuran.placeholder = "Jumlah Takaran";
                 inputUkuran.name = "takaran[]";
 
                 // Membuat select untuk takaran
@@ -240,14 +243,14 @@
                 // Menambahkan opsi Pilih Takaran
                 var optionPilih = document.createElement("option");
                 optionPilih.value = "";
-                optionPilih.textContent = "-- Pilih Takaran --";
+                optionPilih.textContent = "-- Pilih Satuan --";
                 selectTakaran.appendChild(optionPilih);
 
                 // Array of options to be added
                 var options = [
                     { value: "gram", text: "Gram (gr)" },
                     { value: "ml", text: "Mililiter (ml)" },
-                    { value: "sdt", text: "Sendeok Teh (sdt)" },
+                    { value: "sdt", text: "Sendok Teh (sdt)" },
                     { value: "sdm", text: "Sendok Makan (sdm)" },
                     { value: "ptg", text: "Potong (ptg)" },
                     { value: "siung", text: "Siung" },
@@ -301,11 +304,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Apakah Kamu Yakin Ingin Keluar?</p>
+                  <p>Apakah Anda Yakin Ingin Logout?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{ route('logout')}}" class="btn btn-primary">Keluar</a>
+                  <a href="{{ route('logout')}}" class="btn btn-primary">Logout</a>
                 </div>
               </div>
             </div>
@@ -390,6 +393,32 @@
         label.textContent = fileName;
     }
 }
+
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Apakah anda yakin ingin keluar?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, keluar',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'berhasil keluar!',
+                        text: 'Anda akan keluar dari akun Anda.',
+                        icon: 'success',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        window.location.href = "{{ route('logout') }}";
+                    }, 2000);
+                }
+            });
+        }
 
 </script>
 

@@ -75,7 +75,6 @@
                             <form action="{{ route('cari_resep')}}" method="get">
                                 <div class="hero__search__categories">
                                     Resep MPASI
-                                    <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" placeholder="Cari Resep MPASI" name="cari">
                                 <button type="submit" class="site-btn">Cari</button>

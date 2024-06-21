@@ -95,7 +95,7 @@
             transition: background-color 0.3s, transform 0.3s;
         }
         .btn-xl:hover {
-            background-color: #9fd9;
+            background-color: #7FAD39;
             transform: scale(1.05);
         }
         .page-section {
@@ -256,20 +256,11 @@
         <div class="container-fluid p-0">
             <div class="row g-0">
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/1.png') }}" title="Analyst">
-                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/1.png') }}" alt="Project Image">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">4342301043</div>
-                            <div class="project-name" >Shakila Aswaliyah</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/2.png') }}" title="Tester">
-                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/2.png') }}" alt="Project Image">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">4342301044</div>
-                            <div class="project-name">Muhammad Ramdani</div>
+                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/6.png') }}" title="Backend">
+                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/6.png') }}" alt="Project Image">
+                        <div class="portfolio-box-caption p-3">
+                            <div class="project-category text-white-50">4342301033</div>
+                            <div class="project-name">Risi Gustiar</div>
                         </div>
                     </a>
                 </div>
@@ -292,6 +283,24 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/1.png') }}" title="Analyst">
+                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/1.png') }}" alt="Project Image">
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">4342301043</div>
+                            <div class="project-name" >Shakila Aswaliyah</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/2.png') }}" title="Tester">
+                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/2.png') }}" alt="Project Image">
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">4342301044</div>
+                            <div class="project-name">Muhammad Ramdani</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
                     <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/5.png') }}" title="Frontend">
                         <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/5.png') }}" alt="Project Image">
                         <div class="portfolio-box-caption">
@@ -299,17 +308,7 @@
                             <div class="project-name">Juan Sahala Hutapea</div>
                         </div>
                     </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/6.png') }}" title="Backend">
-                        <img class="img-fluid" src="{{ asset('assets/img/portfolio/fullsize/6.png') }}" alt="Project Image">
-                        <div class="portfolio-box-caption p-3">
-                            <div class="project-category text-white-50">4342301033</div>
-                            <div class="project-name">Risi Gustiar</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+                </div></div>
         </div>
     </section>
 
